@@ -32,6 +32,8 @@ data/.cache/
 # Run `npm run sync` after cloning/pulling to populate model data (server falls back to empty until then).
 data/official-api.json
 data/anyrouter-status.json
+#   benchmarks.json ← `npm run sync:bench`  (LMArena Elo + Aider pass-rate, capability axis)
+data/benchmarks.json
 
 # PRIVACY: personal billing data stays local (feasibility §2.3 risk #2)
 data/subscriptions.json
