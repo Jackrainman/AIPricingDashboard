@@ -5,7 +5,7 @@ set -euo pipefail
 
 HOST="${HOST:-rainman@100.78.202.84}"
 DEST="${DEST:-AIPricingDashboard}"          # relative to remote $HOME
-PORT="${PORT:-4179}"
+PORT="${PORT:-4178}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 
 echo "[deploy] syncing $HERE -> $HOST:~/$DEST (port $PORT)"

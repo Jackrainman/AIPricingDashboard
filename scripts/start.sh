@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # start.sh — (re)start the dashboard server in a detached tmux session (fallback: setsid nohup).
-# Survives SSH disconnect. Usage: PORT=4179 HOST=0.0.0.0 bash scripts/start.sh
+# Survives SSH disconnect. Usage: PORT=4178 HOST=0.0.0.0 bash scripts/start.sh
 set -e
 PORT="${PORT:-4178}"
 HOST="${HOST:-127.0.0.1}"

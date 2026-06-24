@@ -20,6 +20,9 @@ node_modules/
 *.tmp
 data/*.tmp
 
+# Local run log (./start.sh -d)
+aipd.local.log
+
 # Local sync caches (re-fetched from upstream)
 data/.cache/
 

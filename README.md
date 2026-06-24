@@ -23,9 +23,12 @@
 
 ```bash
 # 启动（零依赖，无需 npm install）
-node server/index.mjs          # → http://localhost:4178
-# 或自定义端口
-PORT=4179 node server/index.mjs
+./start.sh                     # 前台 → http://localhost:4178（Ctrl-C 退出）
+./start.sh -d                  # 后台（日志 aipd.local.log，停止 pkill -f server/index.mjs）
+# 自定义端口 / 暴露到 LAN（Tailscale）
+PORT=8080 ./start.sh
+HOST=0.0.0.0 ./start.sh
+# 等价底层命令：node server/index.mjs（或 npm start）
 
 # 同步官方 API 数据（拉取上游 → 归一化 → 写 data/official-api.json）
 node scripts/sync-official-api.mjs
@@ -64,7 +67,9 @@ node scripts/check-relays.mjs
 
 ## 部署 / 测试
 
-- `deploy.sh`：rsync 到远端 + 重启服务（默认 rainman WSL）。
+- **端口**：本地与部署统一默认 **4178**（`server/index.mjs` 内置默认；任意脚本均可用 `PORT` 覆盖）。
+- `./start.sh`：本地启动（前台，`-d` 后台）。`scripts/start.sh`：分离式 tmux 启动（远端 / 断连存活）。
+- `deploy.sh`：rsync 到远端 + 以 `HOST=0.0.0.0 PORT=4178` 重启服务（默认 rainman WSL，tmux 会话 `aipd`）。
 - `test/shots.mjs`：Playwright 截图三个 tab + 计算器，校验零控制台错误。
 
 ## 文档

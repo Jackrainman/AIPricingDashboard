@@ -1,9 +1,9 @@
 // shots.mjs — Playwright smoke render: screenshots the 3 tabs + calculator, asserts zero console errors.
 // Resolve Playwright flexibly: set PW_MODULE to a playwright/playwright-core path if not installed in project.
-//   PORT=4179 PW_MODULE=/path/to/playwright-core node test/shots.mjs
+//   PORT=4178 PW_MODULE=/path/to/playwright-core node test/shots.mjs
 import { mkdir } from 'node:fs/promises'
 
-const PORT = process.env.PORT || 4179
+const PORT = process.env.PORT || 4178
 const OUT = process.env.OUT || new URL('.', import.meta.url).pathname
 let PW = process.env.PW_MODULE || 'playwright'
 // a bare path to a CommonJS package dir needs the explicit entry file
