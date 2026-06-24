@@ -1,0 +1,23 @@
+{
+  "subscriptions": [
+    {
+      "tool": "Cursor Pro",
+      "price_monthly_usd": 20,
+      "renewal_date": "2026-07-15",
+      "auto_renew": true,
+      "payment_method": "credit_card",
+      "cancel_url": "https://cursor.com/settings",
+      "notes": "在用"
+    },
+    {
+      "tool": "Claude Pro",
+      "price_monthly_usd": 20,
+      "renewal_date": "2026-07-05",
+      "auto_renew": true,
+      "cancel_url": "https://claude.ai/settings/billing",
+      "notes": "Claude Code 用"
+    }
+  ],
+  "total_monthly_usd": 0,
+  "alerts": []
+}

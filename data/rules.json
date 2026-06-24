@@ -1,0 +1,55 @@
+{
+  "models": {
+    "claude-sonnet-4": {
+      "action": "always_show"
+    },
+    "claude-opus-4": {
+      "action": "always_show"
+    },
+    "claude-haiku-4": {
+      "action": "always_show"
+    },
+    "gpt-5": {
+      "action": "always_show"
+    },
+    "gemini-2.5": {
+      "action": "always_show"
+    },
+    "deepseek": {
+      "action": "always_show"
+    },
+    "kimi": {
+      "action": "show_if_below",
+      "input_price_per_m_below": 1
+    },
+    "minimax": {
+      "action": "ignore",
+      "unless": {
+        "input_price_per_m_below": 0.15
+      }
+    }
+  },
+  "coding_tools": {
+    "cursor": {
+      "action": "always_show",
+      "current_plan": "Pro"
+    },
+    "claude code": {
+      "action": "always_show"
+    },
+    "github copilot": {
+      "action": "show_if_below",
+      "max_price_monthly": 15
+    }
+  },
+  "relays": {},
+  "calculator": {
+    "reference_model_id": "claude-sonnet-4-5",
+    "session_input_tokens": 10000,
+    "session_output_tokens": 3000
+  },
+  "defaults": {
+    "new_model_action": "show_gray",
+    "new_tool_action": "show_gray"
+  }
+}

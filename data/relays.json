@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-06-23T13:25:54.014Z",
+  "stale_threshold_minutes": 90,
+  "relays": [
+    {
+      "id": "anyrouter-top",
+      "name": "AnyRouter (top)",
+      "endpoint": "https://anyrouter.top/v1/models",
+      "type": "new-api",
+      "note": "公益中转站，免 key 探活：401 new-api JSON = 在线",
+      "status": "online",
+      "last_check": "2026-06-23T13:25:54.014Z",
+      "response_time_ms": 761,
+      "http_code": 401,
+      "history_24h": [
+        {
+          "time": "2026-06-23T13:25:54.014Z",
+          "status": "online",
+          "ms": 761
+        }
+      ]
+    },
+    {
+      "id": "anyrouter-fc",
+      "name": "AnyRouter (fcapp)",
+      "endpoint": "https://a-ocnfniawgw.cn-shanghai.fcapp.run/v1/models",
+      "type": "new-api",
+      "note": "AnyRouter 备用后端",
+      "status": "online",
+      "last_check": "2026-06-23T13:25:54.014Z",
+      "response_time_ms": 950,
+      "http_code": 401,
+      "history_24h": [
+        {
+          "time": "2026-06-23T13:25:54.014Z",
+          "status": "online",
+          "ms": 950
+        }
+      ]
+    }
+  ]
+}

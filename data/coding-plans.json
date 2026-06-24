@@ -1,0 +1,803 @@
+{
+  "generated_at": "2026-06-23T13:30:04.699694Z",
+  "today": "2026-06-23",
+  "tools": [
+    {
+      "tool": "GitHub Copilot",
+      "vendor": "GitHub (Microsoft)",
+      "url": "https://github.com/features/copilot/plans",
+      "metering_category": "price",
+      "metering_reason": "Usage is metered via dollar-denominated AI Credits (1 credit = $0.01 USD), with per-plan monthly credit pools; consumption is token-based per model but exposed to users as a USD credit balance, not raw token counts.",
+      "discontinued": false,
+      "plans": [
+        {
+          "name": "Copilot Free",
+          "price_monthly_usd": null,
+          "billing_model": "flat_unlimited",
+          "quota": "2,000 code completions/month; limited chat and agent usage; no AI credits included",
+          "models_included": [
+            "GPT-5 mini",
+            "Claude Haiku 4.5"
+          ],
+          "notes": "No credit card required. Code completions capped at 2,000/month. Chat/agent usage limited but exact count not published."
+        },
+        {
+          "name": "Copilot Student",
+          "price_monthly_usd": null,
+          "billing_model": "flat_unlimited",
+          "quota": "Unlimited code completions + an AI credit allowance (amount not publicly specified); limited chat and agent usage",
+          "models_included": [
+            "GPT-5 mini",
+            "Claude Haiku 4.5"
+          ],
+          "notes": "Free for verified GitHub Student accounts. Credit allowance amount not explicitly published on official pages."
+        },
+        {
+          "name": "Copilot Pro",
+          "price_monthly_usd": 10,
+          "billing_model": "credit_pool_usd",
+          "quota": "$15 in monthly AI credits (1,500 credits at $0.01 each); unlimited code completions and Next Edit Suggestions",
+          "models_included": [
+            "GPT-5 mini",
+            "GPT-5.4",
+            "Claude Haiku 4.5",
+            "Claude Sonnet 4.x",
+            "Gemini 2.5 Pro"
+          ],
+          "notes": "Credits reset monthly with no rollover. Code completions and Next Edit Suggestions are free and do not consume credits. Chat, agent mode, CLI, and Copilot Spaces draw from the credit pool. Additional credits can be purchased."
+        },
+        {
+          "name": "Copilot Pro+",
+          "price_monthly_usd": 39,
+          "billing_model": "credit_pool_usd",
+          "quota": "$70 in monthly AI credits (7,000 credits); unlimited code completions and Next Edit Suggestions",
+          "models_included": [
+            "GPT-5 mini",
+            "GPT-5.4",
+            "GPT-5.5",
+            "Claude Haiku 4.5",
+            "Claude Sonnet 4.x",
+            "Claude Opus 4.x",
+            "Gemini 2.5 Pro",
+            "Gemini 3.5 Flash"
+          ],
+          "notes": "Access to full model catalog including frontier models. 4x+ estimated usage vs Pro tier per GitHub marketing. Additional credits purchasable."
+        },
+        {
+          "name": "Copilot Max",
+          "price_monthly_usd": 100,
+          "billing_model": "credit_pool_usd",
+          "quota": "$200 in monthly AI credits (20,000 credits); unlimited code completions and Next Edit Suggestions; priority access to new models",
+          "models_included": [
+            "GPT-5 mini",
+            "GPT-5.4",
+            "GPT-5.5",
+            "Claude Haiku 4.5",
+            "Claude Sonnet 4.x",
+            "Claude Opus 4.x",
+            "Gemini 2.5 Pro",
+            "Gemini 3.5 Flash"
+          ],
+          "notes": "Highest individual monthly credit allowance. Priority access to newly released models and features. 2.9x+ estimated usage vs Pro+ per GitHub marketing."
+        },
+        {
+          "name": "Copilot Business",
+          "price_monthly_usd": 19,
+          "billing_model": "credit_pool_usd",
+          "quota": "$19/seat in monthly AI credits (pooled across org); unlimited code completions per seat",
+          "models_included": [
+            "GPT-5 mini",
+            "GPT-5.4",
+            "Claude Haiku 4.5",
+            "Claude Sonnet 4.x",
+            "Gemini 2.5 Pro"
+          ],
+          "notes": "Per granted seat per month. Credits are pooled at the organization level. Promotional bonus credits of $30/seat through August 2026 per GitHub blog. Centralized management, audit logs, policy controls."
+        },
+        {
+          "name": "Copilot Enterprise",
+          "price_monthly_usd": 39,
+          "billing_model": "credit_pool_usd",
+          "quota": "$39/seat in monthly AI credits (pooled across org); unlimited code completions per seat; larger credit pool than Business",
+          "models_included": [
+            "GPT-5 mini",
+            "GPT-5.4",
+            "GPT-5.5",
+            "Claude Haiku 4.5",
+            "Claude Sonnet 4.x",
+            "Claude Opus 4.x",
+            "Gemini 2.5 Pro",
+            "Gemini 3.5 Flash"
+          ],
+          "notes": "Per granted seat per month on GitHub Enterprise Cloud (not available for GitHub Enterprise Server). Includes codebase indexing, custom model access, priority model access. Promotional bonus credits of $70/seat through August 2026 per GitHub blog."
+        }
+      ],
+      "last_updated": "2026-06-23",
+      "sources": [
+        "https://github.com/features/copilot/plans",
+        "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/",
+        "https://docs.github.com/en/copilot/get-started/plans",
+        "https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing",
+        "https://usagebox.com/articles/github-copilot-usage-based-billing-2026"
+      ],
+      "my_status": {
+        "current_plan": null
+      }
+    },
+    {
+      "tool": "Cursor",
+      "vendor": "Anysphere",
+      "url": "https://cursor.com/pricing",
+      "metering_category": "price",
+      "metering_reason": "Paid plans include a dollar-denominated monthly credit pool (e.g. $20 for Pro, $70 for Pro+, $400 for Ultra) that depletes based on model API rates — quota is a USD spend cap.",
+      "discontinued": false,
+      "plans": [
+        {
+          "name": "Hobby",
+          "price_monthly_usd": null,
+          "billing_model": "flat_unlimited",
+          "quota": "Limited Agent requests, limited Tab completions; no credit pool",
+          "models_included": [
+            "Auto mode (limited)"
+          ],
+          "notes": "Free forever, no credit card required. New users get a one-week Pro trial."
+        },
+        {
+          "name": "Pro",
+          "price_monthly_usd": 20,
+          "billing_model": "credit_pool_usd",
+          "quota": "$20/month model usage credit pool (~500 fast premium requests equivalent); unlimited Tab completions",
+          "models_included": [
+            "Auto mode",
+            "frontier models",
+            "MAX mode"
+          ],
+          "notes": "Auto mode draws from the included pool at lower effective rates. Overage available as pay-as-you-go at standard API rates. Annual billing reduces to ~$16/month."
+        },
+        {
+          "name": "Pro+",
+          "price_monthly_usd": 60,
+          "billing_model": "credit_pool_usd",
+          "quota": "$70/month model usage credit pool (~1,500 fast premium requests equivalent; 3x Pro allocation); unlimited Tab completions",
+          "models_included": [
+            "Auto mode",
+            "frontier models",
+            "MAX mode"
+          ],
+          "notes": "Plan costs $60/month but includes $70 of model usage. Overage available as pay-as-you-go."
+        },
+        {
+          "name": "Ultra",
+          "price_monthly_usd": 200,
+          "billing_model": "credit_pool_usd",
+          "quota": "$400/month model usage credit pool (20x Pro allocation); unlimited Tab completions",
+          "models_included": [
+            "Auto mode",
+            "all supported models",
+            "MAX mode",
+            "experimental features"
+          ],
+          "notes": "Plan costs $200/month but includes $400 of model usage. Designed for developers running agents all day on large codebases. Priority access to experimental features."
+        },
+        {
+          "name": "Teams (Standard)",
+          "price_monthly_usd": 40,
+          "billing_model": "credit_pool_usd",
+          "quota": "Pro-level credit pool per seat ($20 model usage/user/month); unlimited Tab completions; centralized billing",
+          "models_included": [
+            "Auto mode",
+            "frontier models",
+            "MAX mode"
+          ],
+          "notes": "$40/user/month. Adds team administration, usage analytics, SAML/OIDC SSO, privacy mode, team marketplace for internal rules/skills/plugins."
+        },
+        {
+          "name": "Teams (Premium)",
+          "price_monthly_usd": 120,
+          "billing_model": "credit_pool_usd",
+          "quota": "5x Standard seat limits on Agent per user; unlimited Tab completions; centralized billing",
+          "models_included": [
+            "Auto mode",
+            "frontier models",
+            "MAX mode"
+          ],
+          "notes": "$120/user/month. Includes agentic code reviews with Bugbot, cloud agents with shared team context."
+        },
+        {
+          "name": "Enterprise",
+          "price_monthly_usd": null,
+          "billing_model": "credit_pool_usd",
+          "quota": "Pooled usage across org; custom allocation; all Teams Premium features plus audit logs, SCIM, AI code tracking API",
+          "models_included": [
+            "Auto mode",
+            "all supported models",
+            "MAX mode"
+          ],
+          "notes": "Custom pricing, estimated $50–80/user/month with volume commitments. Invoice/PO billing, repository/model/MCP access controls, priority support."
+        }
+      ],
+      "last_updated": "2026-06-23",
+      "sources": [
+        "https://cursor.com/pricing",
+        "https://cursor.com/docs/models-and-pricing",
+        "https://aiproductivity.ai/blog/cursor-pricing/",
+        "https://dev.to/rahulxsingh/cursor-pricing-in-2026-hobby-pro-pro-ultra-teams-and-enterprise-plans-explained-4b89"
+      ],
+      "my_status": {
+        "current_plan": "Pro",
+        "renewal_date": "2026-07-15",
+        "auto_renew": true
+      }
+    },
+    {
+      "tool": "Claude Code",
+      "vendor": "Anthropic",
+      "url": "https://claude.com/pricing",
+      "metering_category": "other",
+      "metering_reason": "Subscription plans use a 5-hour rolling usage window with per-plan multipliers (5x/20x vs Pro baseline); no explicit published token count, dollar credit pool, or request count quota — Anthropic does not publish exact caps.",
+      "discontinued": false,
+      "plans": [
+        {
+          "name": "Free",
+          "price_monthly_usd": 0,
+          "billing_model": "flat_unlimited",
+          "quota": "Standard usage limits (unspecified); Claude Code included",
+          "models_included": [
+            "claude-sonnet-4-6"
+          ],
+          "notes": "Claude Code access included as of 2026. Usage limits apply but are not published. Web, iOS, Android, desktop access."
+        },
+        {
+          "name": "Pro",
+          "price_monthly_usd": 20,
+          "billing_model": "time_window_multiplier",
+          "quota": "~45 messages / ~44K tokens per 5-hour rolling window (Anthropic does not publish exact caps; these are community-derived estimates)",
+          "models_included": [
+            "claude-sonnet-4-6",
+            "claude-opus-4-6"
+          ],
+          "notes": "$17/month if billed annually ($200/year). Claude Code included. Usage shared across Claude web/mobile and Claude Code CLI. 5-hour rolling window resets continuously. Exact token caps not officially published."
+        },
+        {
+          "name": "Max 5x",
+          "price_monthly_usd": 100,
+          "billing_model": "time_window_multiplier",
+          "quota": "5x more usage than Pro per 5-hour rolling window (~225 messages / ~88K tokens estimated)",
+          "models_included": [
+            "claude-sonnet-4-6",
+            "claude-opus-4-6"
+          ],
+          "notes": "Monthly only (no annual option as of June 2026). Priority access during high traffic, early feature access, higher output limits. Also has weekly dual limits (all-models + Sonnet-specific) per Max plan help article."
+        },
+        {
+          "name": "Max 20x",
+          "price_monthly_usd": 200,
+          "billing_model": "time_window_multiplier",
+          "quota": "20x more usage than Pro per 5-hour rolling window (~900 messages / ~220K tokens estimated)",
+          "models_included": [
+            "claude-sonnet-4-6",
+            "claude-opus-4-6"
+          ],
+          "notes": "Monthly only. Same benefits as Max 5x but higher capacity. Designed for full-day intensive development. Same weekly dual-limit mechanism applies."
+        },
+        {
+          "name": "Team Standard",
+          "price_monthly_usd": 25,
+          "billing_model": "time_window_multiplier",
+          "quota": "More usage than Pro tier; exact limits not published. Minimum 5 seats.",
+          "models_included": [
+            "claude-sonnet-4-6"
+          ],
+          "notes": "$20/seat/month billed annually. Includes Claude Code, SSO, admin controls, Microsoft 365/Slack integrations. Mix-and-match with Premium seats allowed."
+        },
+        {
+          "name": "Team Premium",
+          "price_monthly_usd": 125,
+          "billing_model": "time_window_multiplier",
+          "quota": "5x more usage than Team Standard seats per 5-hour rolling window",
+          "models_included": [
+            "claude-sonnet-4-6",
+            "claude-opus-4-6"
+          ],
+          "notes": "$100/seat/month billed annually. Includes Claude Code and Claude Cowork. Minimum 5 seats total (mix with Standard seats allowed)."
+        },
+        {
+          "name": "Enterprise Self-Serve",
+          "price_monthly_usd": 20,
+          "billing_model": "credit_pool_usd",
+          "quota": "$20/seat/month base + additional usage billed at API rates (pay-as-you-go on top)",
+          "models_included": [
+            "claude-sonnet-4-6",
+            "claude-opus-4-6",
+            "claude-haiku-4-5"
+          ],
+          "notes": "Adds spend limits, SCIM, audit logs, Compliance API, custom data retention, IP allowlisting, HIPAA-ready option. Usage beyond seat allowance billed at standard API token rates."
+        },
+        {
+          "name": "Enterprise Sales-Assisted",
+          "price_monthly_usd": null,
+          "billing_model": "credit_pool_usd",
+          "quota": "Custom; negotiated via sales with tiered spending incentives",
+          "models_included": [
+            "claude-sonnet-4-6",
+            "claude-opus-4-6",
+            "claude-haiku-4-5"
+          ],
+          "notes": "Custom MSA terms, consultation, tiered spending incentives. Contact Anthropic sales."
+        },
+        {
+          "name": "API (Pay-as-You-Go)",
+          "price_monthly_usd": null,
+          "billing_model": "token_metered",
+          "quota": "Unlimited completions; billed per token. Sonnet 4.6: $3/MTok input, $15/MTok output. Opus 4.6: $5/MTok input, $25/MTok output. Haiku 4.5: $1/MTok input, $3/MTok output.",
+          "models_included": [
+            "claude-sonnet-4-6",
+            "claude-opus-4-6",
+            "claude-haiku-4-5"
+          ],
+          "notes": "Prompt caching reads at ~90% discount. Batch API at 50% discount. Extended context (>200K tokens) at 2x input price. Claude Code CLI can be used with BYO API key under this billing."
+        }
+      ],
+      "last_updated": "2026-06-23",
+      "sources": [
+        "https://claude.com/pricing",
+        "https://support.claude.com/en/articles/11049741-what-is-the-max-plan",
+        "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan",
+        "https://www.ssdnodes.com/blog/claude-code-pricing-in-2026-every-plan-explained-pro-max-api-teams/",
+        "https://findskill.ai/blog/claude-code-subscription-pricing-guide/",
+        "https://intuitionlabs.ai/articles/claude-max-plan-pricing-usage-limits",
+        "https://www.verdent.ai/guides/claude-code-pricing-2026"
+      ],
+      "my_status": {
+        "current_plan": "Pro",
+        "renewal_date": "2026-07-05",
+        "auto_renew": true
+      }
+    },
+    {
+      "tool": "OpenAI Codex",
+      "vendor": "OpenAI",
+      "url": "https://chatgpt.com/codex/pricing/",
+      "metering_category": "other",
+      "metering_reason": "Usage is metered by a token-based credit system within a rolling 5-hour window, with per-model credit multipliers — neither a flat dollar pool nor a simple monthly count.",
+      "discontinued": false,
+      "plans": [
+        {
+          "name": "Free",
+          "price_monthly_usd": 0,
+          "billing_model": "flat_unlimited",
+          "quota": "Limited trial access; lowest rate limits on rolling 5-hour window",
+          "models_included": [
+            "GPT-5.3-Codex",
+            "GPT-5.4-mini"
+          ],
+          "notes": "Local tasks only; no cloud delegation tasks; exact limits not published"
+        },
+        {
+          "name": "Go",
+          "price_monthly_usd": 8,
+          "billing_model": "time_window_multiplier",
+          "quota": "Lightweight local coding tasks; no cloud delegation; higher limits than Free; 5-hour rolling window",
+          "models_included": [
+            "GPT-5.3-Codex",
+            "GPT-5.4-mini"
+          ],
+          "notes": "Launched ~April 2026; no cloud task support; exact message/credit limits not disclosed in sources reviewed"
+        },
+        {
+          "name": "Plus",
+          "price_monthly_usd": 20,
+          "billing_model": "time_window_multiplier",
+          "quota": "Per rolling 5-hour window: ~15-80 GPT-5.5 messages, ~20-100 GPT-5.4 messages, ~60-350 GPT-5.4-mini messages; 10-60 cloud tasks per 5h window; credits top-ups purchasable",
+          "models_included": [
+            "GPT-5.5",
+            "GPT-5.4",
+            "GPT-5.4-mini",
+            "GPT-5.3-Codex"
+          ],
+          "notes": "Billing switched April 2, 2026 from per-message to token-based credits. Message range estimates derived from token credit rates (43.75-125 credits per 1M input tokens, 350-750 per 1M output tokens). Credit top-ups available. Includes web, CLI, IDE extension, iOS, cloud integrations."
+        },
+        {
+          "name": "Pro 5x",
+          "price_monthly_usd": 100,
+          "billing_model": "time_window_multiplier",
+          "quota": "5x Plus rate limits per rolling 5-hour window: ~75-400 GPT-5.5 messages, ~100-500 GPT-5.4 messages, ~300-1750 GPT-5.4-mini messages; 50-300 cloud tasks per 5h",
+          "models_included": [
+            "GPT-5.5",
+            "GPT-5.4",
+            "GPT-5.4-mini",
+            "GPT-5.3-Codex",
+            "Codex-Spark (research preview)"
+          ],
+          "notes": "New tier launched April 2026. Formerly the legacy Pro ($200) plan was split into Pro 5x ($100) and Pro 20x ($200). Subscribers before April 9, 2026 were grandfathered into Pro 20x."
+        },
+        {
+          "name": "Pro 20x",
+          "price_monthly_usd": 200,
+          "billing_model": "time_window_multiplier",
+          "quota": "20x Plus rate limits per rolling 5-hour window: ~300-1600 GPT-5.5 messages, ~400-2000 GPT-5.4 messages, ~1200-7000 GPT-5.4-mini messages; 200-1200 cloud tasks per 5h",
+          "models_included": [
+            "GPT-5.5",
+            "GPT-5.4",
+            "GPT-5.4-mini",
+            "GPT-5.3-Codex",
+            "Codex-Spark (research preview)"
+          ],
+          "notes": "Original Pro plan rebranded Pro 20x. All pre-April 9, 2026 Pro subscribers are on this tier. Highest fixed-subscription rate limits."
+        },
+        {
+          "name": "Business",
+          "price_monthly_usd": 25,
+          "billing_model": "token_metered",
+          "quota": "Pay-as-you-go per seat (~$25/user/month billed monthly, ~$20/user/month annually); same base rate limits as Plus; larger VMs, SAML SSO, MFA",
+          "models_included": [
+            "GPT-5.5",
+            "GPT-5.4",
+            "GPT-5.4-mini",
+            "GPT-5.3-Codex"
+          ],
+          "notes": "Per-seat pay-as-you-go pricing. No training on business data by default. $25/user/month is the monthly billing rate; $20/user/month if billed annually. Actual token consumption billed beyond included allowance."
+        },
+        {
+          "name": "Enterprise / Education",
+          "price_monthly_usd": null,
+          "billing_model": "token_metered",
+          "quota": "Custom; no fixed rate limits; shared credit pool; enterprise security, SCIM, audit logs, data residency",
+          "models_included": [
+            "GPT-5.5",
+            "GPT-5.4",
+            "GPT-5.4-mini",
+            "GPT-5.3-Codex",
+            "Codex-Spark (research preview)"
+          ],
+          "notes": "Contact sales for pricing. Priority processing. No published credit or rate limit figures."
+        },
+        {
+          "name": "API (BYO key / direct API)",
+          "price_monthly_usd": null,
+          "billing_model": "byo_key",
+          "quota": "Pure per-token billing; no cloud features or rolling-window limits",
+          "models_included": [
+            "gpt-5.3-codex",
+            "gpt-5.5",
+            "gpt-5.4",
+            "gpt-5.4-mini"
+          ],
+          "notes": "API rates (per 1M tokens): gpt-5.3-codex $1.75 input / $14.00 output; gpt-5.5 $5.00 input / $30.00 output; gpt-5.4 $2.50 input / $15.00 output; gpt-5.4-mini $0.75 input / $4.50 output. Cached input ~10% of input price. CLI/SDK/IDE only — no web app cloud features."
+        }
+      ],
+      "last_updated": "2026-06-23",
+      "sources": [
+        "https://chatgpt.com/codex/pricing/",
+        "https://help.openai.com/en/articles/20001106-codex-rate-card",
+        "https://developers.openai.com/codex/pricing",
+        "https://www.morphllm.com/codex-pricing",
+        "https://uibakery.io/blog/openai-codex-pricing",
+        "https://www.eesel.ai/blog/openai-codex-pricing"
+      ],
+      "my_status": {
+        "current_plan": null
+      }
+    },
+    {
+      "tool": "Windsurf (now Devin Desktop)",
+      "vendor": "Cognition (formerly Codeium; acquired December 2025)",
+      "url": "https://devin.ai/pricing",
+      "metering_category": "count",
+      "metering_reason": "Paid plans meter usage as number of agent messages/requests per day and per week (daily and weekly quota that refreshes), not by token count or dollar spend.",
+      "discontinued": false,
+      "plans": [
+        {
+          "name": "Free",
+          "price_monthly_usd": null,
+          "billing_model": "flat_unlimited",
+          "quota": "Light daily and weekly quota for Cascade/Devin Local agent; unlimited Tab autocomplete and inline edits; limited model selection",
+          "models_included": [
+            "SWE-1.5/1.6",
+            "select free/open-source models"
+          ],
+          "notes": "Specific daily message numbers not publicly disclosed. Tab autocomplete never consumes quota on any plan."
+        },
+        {
+          "name": "Pro",
+          "price_monthly_usd": 20,
+          "billing_model": "count",
+          "quota": "Standard daily and weekly refresh quotas for agent messages; estimated ~8-101 messages/day on Premium tier models (Sonnet 4.6 class), ~7-27/day on Premium Plus (Opus 4.6 class), ~47-190/day on Lightweight (Haiku class); overages billed at API pricing",
+          "models_included": [
+            "SWE-1.5/1.6",
+            "Claude Sonnet 4.6",
+            "Claude Opus 4.6",
+            "GPT-5 family",
+            "Gemini 3.1 Pro",
+            "Haiku/Flash"
+          ],
+          "notes": "Price raised from $15 to $20/month in May 2026. Overage charged at API rates per message. Student discount ~50% off with .edu email. Annual billing saves ~17-20%."
+        },
+        {
+          "name": "Max",
+          "price_monthly_usd": 200,
+          "billing_model": "count",
+          "quota": "Significantly higher daily and weekly quotas vs Pro; estimated ~47-631 messages/day on Premium tier, ~42-170/day on Premium Plus, ~291-1,190/day on Lightweight; designed for all-day heavy Cascade/Devin Local usage",
+          "models_included": [
+            "SWE-1.5/1.6",
+            "Claude Sonnet 4.6",
+            "Claude Opus 4.6",
+            "GPT-5 family",
+            "Gemini 3.1 Pro",
+            "Haiku/Flash"
+          ],
+          "notes": "Added alongside or near the June 2026 rebrand to Devin Desktop. Targets developers who regularly exhaust Pro quotas."
+        },
+        {
+          "name": "Teams",
+          "price_monthly_usd": 40,
+          "billing_model": "count",
+          "quota": "Per-user individual daily/weekly quota (same as Pro per seat, not pooled); centralized billing; admin dashboard with usage analytics; Knowledge Base integration",
+          "models_included": [
+            "SWE-1.5/1.6",
+            "Claude Sonnet 4.6",
+            "Claude Opus 4.6",
+            "GPT-5 family",
+            "Gemini 3.1 Pro",
+            "Haiku/Flash"
+          ],
+          "notes": "Listed as $40/user/month on most sources; one source (devin.ai/pricing direct fetch) shows $80/month base + $40/seat. The $40/seat/month figure is most widely cited. Includes everything in Pro plus team admin features."
+        },
+        {
+          "name": "Enterprise",
+          "price_monthly_usd": null,
+          "billing_model": "count",
+          "quota": "Custom; some sources cite ~$60/user/month baseline with double Teams quota; includes SAML/OIDC SSO, SCIM, RBAC, dedicated deployment",
+          "models_included": [
+            "SWE-1.5/1.6",
+            "Claude Sonnet 4.6",
+            "Claude Opus 4.6",
+            "GPT-5 family",
+            "Gemini 3.1 Pro",
+            "Haiku/Flash"
+          ],
+          "notes": "Custom pricing; contact sales."
+        }
+      ],
+      "last_updated": "2026-06-23",
+      "sources": [
+        "https://devin.ai/pricing",
+        "https://devin.ai/blog/windsurf-pricing-plans/",
+        "https://www.cloudzero.com/blog/windsurf-pricing/",
+        "https://www.verdent.ai/guides/windsurf-pricing-2026",
+        "https://checkthat.ai/brands/windsurf/pricing"
+      ],
+      "my_status": {
+        "current_plan": null
+      }
+    },
+    {
+      "tool": "JetBrains AI Assistant",
+      "vendor": "JetBrains",
+      "url": "https://www.jetbrains.com/ai/",
+      "metering_category": "price",
+      "metering_reason": "AI Credits are explicitly denominated as 1 credit = $1 USD; quota is a dollar-amount credit pool consumed by token-based usage, not a raw token or request count.",
+      "discontinued": false,
+      "plans": [
+        {
+          "name": "AI Free",
+          "price_monthly_usd": 0,
+          "billing_model": "credit_pool_usd",
+          "quota": "3 AI credits ($3) per 30 days; unlimited code completions included",
+          "models_included": [
+            "Unspecified frontier models"
+          ],
+          "notes": "Free tier; context-aware chat and code completion included; no top-up required to use basic features."
+        },
+        {
+          "name": "AI Pro (Individual)",
+          "price_monthly_usd": 10,
+          "billing_model": "credit_pool_usd",
+          "quota": "10 AI credits ($10) per month",
+          "models_included": [
+            "Unspecified frontier models including multi-model access"
+          ],
+          "notes": "Bundled free with JetBrains All Products Pack and dotUltimate IDE subscriptions. Requires separate IDE subscription for full use."
+        },
+        {
+          "name": "AI Pro (Business)",
+          "price_monthly_usd": 20,
+          "billing_model": "credit_pool_usd",
+          "quota": "20 AI credits ($20) per seat per month",
+          "models_included": [
+            "Unspecified frontier models"
+          ],
+          "notes": "Per-seat business pricing with centralized billing and admin controls. Price is $20/seat/month; some secondary sources show $16/mo for commercial annual pricing."
+        },
+        {
+          "name": "AI Ultimate (Individual)",
+          "price_monthly_usd": 30,
+          "billing_model": "credit_pool_usd",
+          "quota": "35 AI credits ($35) per month — $5 bonus over plan price",
+          "models_included": [
+            "Unspecified frontier models including Junie AI agent, Claude Agent"
+          ],
+          "notes": "Includes $5 bonus credit monthly. Top-up credits valid 12 months. Must be added on top of IDE subscription."
+        },
+        {
+          "name": "AI Ultimate (Business)",
+          "price_monthly_usd": 60,
+          "billing_model": "credit_pool_usd",
+          "quota": "70 AI credits ($70) per seat per month",
+          "models_included": [
+            "Unspecified frontier models"
+          ],
+          "notes": "Per-seat business pricing with centralized admin. Exact credit count extrapolated from Individual ratio; confirm on official page."
+        },
+        {
+          "name": "AI Enterprise",
+          "price_monthly_usd": null,
+          "billing_model": "credit_pool_usd",
+          "quota": "Custom credit allocation",
+          "models_included": [
+            "Unspecified frontier models"
+          ],
+          "notes": "Custom pricing; includes BYOK (Bring Your Own Key) option. Contact JetBrains sales for details."
+        }
+      ],
+      "sources": [
+        "https://www.jetbrains.com/help/ai-assistant/licensing-and-subscriptions.html",
+        "https://www.jetbrains.com/ai-ides/buy/",
+        "https://aiproductivity.ai/pricing/jetbrains-ai-assistant/",
+        "https://aiproductivity.ai/blog/jetbrains-ai-assistant/",
+        "https://devtoolsreview.com/pricing/jetbrains-ai-pricing/"
+      ],
+      "last_updated": "2026-06-23",
+      "my_status": {
+        "current_plan": null
+      }
+    },
+    {
+      "tool": "Gemini Code Assist",
+      "vendor": "Google",
+      "url": "https://cloud.google.com/products/gemini/pricing",
+      "metering_category": "count",
+      "metering_reason": "Paid plans are per-seat subscriptions with daily request quotas (1,500–2,000 requests/user/day), metered by number of model requests rather than tokens or dollar spend.",
+      "discontinued": false,
+      "plans": [
+        {
+          "name": "Individual (Free)",
+          "price_monthly_usd": null,
+          "billing_model": "flat_unlimited",
+          "quota": "6,000 code-related requests/day + 240 chat requests/day (DISCONTINUED June 18, 2026)",
+          "models_included": [
+            "Gemini 2.5"
+          ],
+          "notes": "This tier was sunset on June 18, 2026. IDE extensions and Gemini CLI stopped serving requests for individual/free, Google AI Pro, and Google AI Ultra accounts. Enterprise Standard/Enterprise subscriptions were unaffected."
+        },
+        {
+          "name": "Standard",
+          "price_monthly_usd": 22.8,
+          "billing_model": "count",
+          "quota": "1,500 requests/user/day (across all model interactions); $19/seat/month on annual commitment",
+          "models_included": [
+            "Gemini 2.5 and supported Gemini models"
+          ],
+          "notes": "Per-seat subscription. $22.80/seat/month billed monthly, or $19/seat/month on annual commitment (approx. 17% discount). Includes code completion, generation, chat, local codebase awareness, agent mode, Gemini CLI access, and Google Cloud integrations."
+        },
+        {
+          "name": "Enterprise",
+          "price_monthly_usd": 54,
+          "billing_model": "count",
+          "quota": "2,000 requests/user/day (across all model interactions); $45/seat/month on annual commitment",
+          "models_included": [
+            "Gemini 2.5 and supported Gemini models"
+          ],
+          "notes": "Per-seat subscription. $54/seat/month billed monthly, or $45/seat/month on annual commitment (approx. 17% discount). Adds private repository code customization, Apigee/API integration tools, expanded cloud assist features, and pooled usage. 30-day free trial for up to 50 users. The official Google Cloud pricing page was not directly fetchable (redirected); prices confirmed via multiple secondary sources (aiproductivity.ai, developers.google.com quota docs, 9to5google)."
+        }
+      ],
+      "sources": [
+        "https://developers.google.com/gemini-code-assist/resources/faqs",
+        "https://developers.google.com/gemini-code-assist/resources/quotas",
+        "https://docs.cloud.google.com/gemini/docs/codeassist/overview",
+        "https://aiproductivity.ai/pricing/gemini-code-assist/",
+        "https://9to5google.com/2026/06/17/gemini-cli-code-assist-shutting-down/",
+        "https://developers.google.com/gemini-code-assist/docs/deprecations/consumer-code-review",
+        "https://cloudchipr.com/blog/gemini-code-assist"
+      ],
+      "last_updated": "2026-06-23",
+      "my_status": {
+        "current_plan": null
+      }
+    },
+    {
+      "tool": "Amazon Q Developer",
+      "vendor": "Amazon Web Services (AWS)",
+      "url": "https://aws.amazon.com/q/developer/pricing/",
+      "metering_category": "count",
+      "metering_reason": "The primary quota for both Free and Pro tiers is measured in \"agentic requests per month\" — a discrete count, not tokens or dollars.",
+      "discontinued": true,
+      "plans": [
+        {
+          "name": "Free",
+          "price_monthly_usd": null,
+          "billing_model": "flat_unlimited",
+          "quota": "50 agentic requests/month; 1,000 lines of code/month for Java transformation; inline code suggestions unlimited",
+          "models_included": [
+            "Latest Claude models (via IDE/CLI)"
+          ],
+          "notes": "No credit card required. Available via AWS Builder ID (personal), IAM Identity Center, or IAM credentials. New Free Tier account creation via Builder ID in IDE plugins was blocked as of May 15, 2026. Free tier via IAM Identity Center / IAM credentials in AWS Console may still be accessible for existing orgs."
+        },
+        {
+          "name": "Pro",
+          "price_monthly_usd": 19,
+          "billing_model": "premium_requests_count",
+          "quota": "Unlimited agentic requests (with unspecified soft limits); 4,000 lines of code/month per user (pooled at account level) for Java transformation; extra Java transformation at $0.003/line",
+          "models_included": [
+            "Latest Claude models (via IDE/CLI)"
+          ],
+          "notes": "Per user/month. Includes IP indemnity, admin dashboard, user/policy management, opted out of data collection. New Pro subscriptions blocked as of May 15, 2026 — existing subscriptions can add users until April 30, 2027. IDE plugins reach full end-of-support April 30, 2027. Successor product is Kiro (agentic IDE). Billing is pro-rated daily (1/30 per user per day)."
+        }
+      ],
+      "sources": [
+        "https://aws.amazon.com/q/developer/pricing/",
+        "https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/",
+        "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-tiers.html",
+        "https://aws-news.com/article/2026-04-30-amazon-q-developer-end-of-support-announcement"
+      ],
+      "last_updated": "2026-06-23",
+      "my_status": {
+        "current_plan": null
+      }
+    },
+    {
+      "tool": "Aider",
+      "vendor": "Open Source (Aider)",
+      "url": "https://aider.chat",
+      "metering_category": "token",
+      "metering_reason": "免费开源 CLI，自带 API key，完全按底层模型的 token 单价计费（pay-as-you-go）。",
+      "discontinued": false,
+      "plans": [
+        {
+          "name": "BYO API Key",
+          "price_monthly_usd": null,
+          "billing_model": "byo_key",
+          "quota": "无订阅，按所用模型 token 实际计费",
+          "models_included": [
+            "任意 OpenAI/Anthropic/DeepSeek/本地模型"
+          ],
+          "notes": "花费 = 实际 token 用量 × 该模型 API 单价，见「对比表/官方 API」。"
+        }
+      ],
+      "my_status": {
+        "current_plan": null
+      },
+      "last_updated": "2026-06-23",
+      "sources": [
+        "https://aider.chat/docs/usage/cost.html"
+      ]
+    },
+    {
+      "tool": "Cline",
+      "vendor": "Open Source (Cline)",
+      "url": "https://cline.bot",
+      "metering_category": "token",
+      "metering_reason": "VS Code 开源插件，自带 API key（或 OpenRouter），按 token 实际消耗计费，无固定月费。",
+      "discontinued": false,
+      "plans": [
+        {
+          "name": "BYO API Key",
+          "price_monthly_usd": null,
+          "billing_model": "byo_key",
+          "quota": "无订阅，按所用模型 token 实际计费",
+          "models_included": [
+            "任意 Anthropic/OpenAI/Gemini/OpenRouter 模型"
+          ],
+          "notes": "与 Aider 同理，纯 token 计量；适合用中转站/DeepSeek 压成本。"
+        }
+      ],
+      "my_status": {
+        "current_plan": null
+      },
+      "last_updated": "2026-06-23",
+      "sources": [
+        "https://cline.bot"
+      ]
+    }
+  ]
+}

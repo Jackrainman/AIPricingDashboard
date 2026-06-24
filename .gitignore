@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Data backups (git tracks current, not historical exports)
+data/backups/
+
+# Node
+node_modules/
+*.tmp
+data/*.tmp
+
+# Local sync caches (re-fetched from upstream)
+data/.cache/
+
+# PRIVACY: personal billing data stays local (feasibility §2.3 risk #2)
+data/subscriptions.json

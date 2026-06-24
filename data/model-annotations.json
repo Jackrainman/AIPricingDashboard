@@ -1,0 +1,467 @@
+{
+  "generated_at": "2026-06-23T13:30:04.701163Z",
+  "annotations": [
+    {
+      "match": "claude-fable-5",
+      "vendor": "Anthropic",
+      "release_date": "2026-06",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released June 9, 2026. Mythos-class model made available publicly. Frontier performance on software engineering, science, vision. 1M context, 128K output. $10/M input, $50/M output."
+    },
+    {
+      "match": "claude-opus-4-8",
+      "vendor": "Anthropic",
+      "release_date": "2026-05",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released May 28, 2026. Top-tier Opus; current Anthropic general flagship before Fable 5. 1M context. $5/M input, $25/M output."
+    },
+    {
+      "match": "claude-sonnet-4-6",
+      "vendor": "Anthropic",
+      "release_date": "2026-02",
+      "tags": [
+        "coding-capable",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released February 17, 2026. Balanced workhorse; developer default. Strong coding and long-context. Mid-range pricing."
+    },
+    {
+      "match": "claude-haiku-4-5",
+      "vendor": "Anthropic",
+      "release_date": "2025-10",
+      "tags": [
+        "cheap-bulk",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released October 15, 2025. Fastest and cheapest Claude 4.x; designed for high-volume agentic sub-tasks."
+    },
+    {
+      "match": "claude-opus-4-5",
+      "vendor": "Anthropic",
+      "release_date": "2025-11",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released November 2025. Predecessor to Opus 4.8; heavy reasoning and agentic work."
+    },
+    {
+      "match": "claude-sonnet-4-5",
+      "vendor": "Anthropic",
+      "release_date": "2025-09",
+      "tags": [
+        "coding-capable",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released September 29, 2025. Introduced context-aware improvements; balanced performance."
+    },
+    {
+      "match": "claude-opus-4-1",
+      "vendor": "Anthropic",
+      "release_date": "2025-08",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released August 2025. First Opus 4.x point release after initial Opus 4 launch."
+    },
+    {
+      "match": "gpt-5",
+      "vendor": "OpenAI",
+      "release_date": "2025-08",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released August 7, 2025. OpenAI's frontier general model; available via ChatGPT and API. Succeeded GPT-4.x family."
+    },
+    {
+      "match": "gpt-5-codex",
+      "vendor": "OpenAI",
+      "release_date": "2025-08",
+      "tags": [
+        "coding-optimized",
+        "tool-calling"
+      ],
+      "notes": "GPT-5 further fine-tuned for agentic coding in OpenAI Codex; optimized for long-horizon software engineering tasks. Vendor explicitly markets it for code."
+    },
+    {
+      "match": "gpt-5.5",
+      "vendor": "OpenAI",
+      "release_date": "2026-04",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released April 23, 2026. Latest GPT-5 series flagship; 1M context, $5/M input, $30/M output. Powers Codex in production."
+    },
+    {
+      "match": "gpt-4.1",
+      "vendor": "OpenAI",
+      "release_date": "2025-04",
+      "tags": [
+        "coding-capable",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released April 14, 2025. 1M token context; enhanced instruction-following and coding vs GPT-4o. API-only model (no ChatGPT)."
+    },
+    {
+      "match": "gpt-4o",
+      "vendor": "OpenAI",
+      "release_date": "2024-05",
+      "tags": [
+        "coding-capable",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released May 2024. Multimodal flagship of the GPT-4 era; still widely used for vision and general tasks."
+    },
+    {
+      "match": "o3",
+      "vendor": "OpenAI",
+      "release_date": "2025-04",
+      "tags": [
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released April 16, 2025 (o3-mini January 31, 2025). Extended thinking reasoning model; top-tier on math, science, coding benchmarks."
+    },
+    {
+      "match": "o4-mini",
+      "vendor": "OpenAI",
+      "release_date": "2025-04",
+      "tags": [
+        "reasoning",
+        "vision",
+        "tool-calling",
+        "cheap-bulk"
+      ],
+      "notes": "Released April 16, 2025. Cost-efficient reasoning model with vision; free-tier accessible April 24, 2025."
+    },
+    {
+      "match": "gemini-2.5-pro",
+      "vendor": "Google",
+      "release_date": "2025-05",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Previewed May 2025 (Google I/O); GA in Vertex AI, Gemini API, AI Studio. Long-context, thinking model; top enterprise AI."
+    },
+    {
+      "match": "gemini-2.5-flash",
+      "vendor": "Google",
+      "release_date": "2025-06",
+      "tags": [
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling",
+        "cheap-bulk"
+      ],
+      "notes": "GA June 2025; stable version February 19, 2026. Cost-efficient thinking model; excellent throughput and vision."
+    },
+    {
+      "match": "gemini-2.5-flash-lite",
+      "vendor": "Google",
+      "release_date": "2025-07",
+      "tags": [
+        "cheap-bulk",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Stable release July 22, 2025. Lightest 2.5 variant; very low cost for bulk inference and high-volume agentic use."
+    },
+    {
+      "match": "gemini-3.0-pro",
+      "vendor": "Google",
+      "release_date": "2026-01",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released January 2026. Improved reasoning and multimodal; positioned as Google's premier agentic/coding model."
+    },
+    {
+      "match": "gemini-3.5-flash",
+      "vendor": "Google",
+      "release_date": "2026-05",
+      "tags": [
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling",
+        "cheap-bulk"
+      ],
+      "notes": "Introduced at Google I/O 2026 (May 2026); shipped as default for Google AI Mode. Fast and cost-efficient next-gen flash."
+    },
+    {
+      "match": "deepseek-chat",
+      "vendor": "DeepSeek",
+      "release_date": "2024-12",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "tool-calling",
+        "cheap-bulk"
+      ],
+      "notes": "deepseek-chat = DeepSeek-V3 (Dec 27, 2024); updated through V3.2. Non-thinking mode; extremely cheap, GPT-5-class on many tasks."
+    },
+    {
+      "match": "deepseek-reasoner",
+      "vendor": "DeepSeek",
+      "release_date": "2025-01",
+      "tags": [
+        "reasoning",
+        "tool-calling",
+        "cheap-bulk"
+      ],
+      "notes": "deepseek-reasoner = DeepSeek-R1 (Jan 20, 2025); thinking mode. Chain-of-thought reasoning at very low cost. MIT-licensed."
+    },
+    {
+      "match": "grok-4",
+      "vendor": "xAI",
+      "release_date": "2025-07",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released July 9, 2025. xAI's flagship trained on 200K-GPU Colossus; strong on reasoning and real-time knowledge."
+    },
+    {
+      "match": "grok-3",
+      "vendor": "xAI",
+      "release_date": "2025-02",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released February 17, 2025. First xAI dedicated reasoning model; 10x compute of Grok-2. Predecessor to Grok-4."
+    },
+    {
+      "match": "kimi-k2",
+      "vendor": "Moonshot AI",
+      "release_date": "2025-07",
+      "tags": [
+        "coding-capable",
+        "tool-calling",
+        "cheap-bulk"
+      ],
+      "notes": "Released July 2025. 1T-parameter MoE open-source agentic model; top open-source arena rank. Evolved into K2.5/K2.6/K2.7 series."
+    },
+    {
+      "match": "kimi-k2.6",
+      "vendor": "Moonshot AI",
+      "release_date": "2026-04",
+      "tags": [
+        "coding-capable",
+        "tool-calling"
+      ],
+      "notes": "Released April 20, 2026. GA production release; multi-agent coding focus. Modified MIT license. Ties GPT-5.5 on coding benchmarks."
+    },
+    {
+      "match": "kimi-k2.7-code",
+      "vendor": "Moonshot AI",
+      "release_date": "2026-06",
+      "tags": [
+        "coding-optimized",
+        "tool-calling"
+      ],
+      "notes": "Released June 12, 2026. Vendor-marketed as coding-first open-source model; weights on Hugging Face. Reduces reasoning tokens ~30%."
+    },
+    {
+      "match": "glm-4.6",
+      "vendor": "Zhipu AI (Z.ai)",
+      "release_date": "2025-09",
+      "tags": [
+        "coding-capable",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released September 30, 2025. 355B-parameter open-source; 200K context, 128K output, MIT license. Strong coding and agentic AI."
+    },
+    {
+      "match": "glm-4.6v",
+      "vendor": "Zhipu AI (Z.ai)",
+      "release_date": "2025-12",
+      "tags": [
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released December 9, 2025. Vision-language variant of GLM-4.6; 128K context, native tool calling."
+    },
+    {
+      "match": "qwen3-235b-a22b",
+      "vendor": "Alibaba (Qwen)",
+      "release_date": "2025-04",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "tool-calling"
+      ],
+      "notes": "Released April 28, 2025. Original Qwen3 MoE flagship; 235B total / 22B active. Hybrid thinking/non-thinking modes. Apache 2.0."
+    },
+    {
+      "match": "qwen3-32b",
+      "vendor": "Alibaba (Qwen)",
+      "release_date": "2025-04",
+      "tags": [
+        "coding-capable",
+        "reasoning",
+        "tool-calling"
+      ],
+      "notes": "Released April 28, 2025. Largest dense Qwen3 model; hybrid reasoning mode. Widely used self-hosted alternative."
+    },
+    {
+      "match": "qwen3-coder",
+      "vendor": "Alibaba (Qwen)",
+      "release_date": "2025-07",
+      "tags": [
+        "coding-optimized",
+        "tool-calling"
+      ],
+      "notes": "Released July 2025. 480B total / 35B active MoE; vendor-marketed dedicated coding model. Agentic software engineering focus."
+    },
+    {
+      "match": "qwen3.5",
+      "vendor": "Alibaba (Qwen)",
+      "release_date": "2026-02",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "tool-calling"
+      ],
+      "notes": "Released February 2026. 397B total / 17B active MoE; 262K native context. Next-gen Qwen3 with 256 experts."
+    },
+    {
+      "match": "mistral-large",
+      "vendor": "Mistral AI",
+      "release_date": "2025-12",
+      "tags": [
+        "coding-capable",
+        "tool-calling"
+      ],
+      "notes": "mistral-large-latest = Mistral Large 3 (Dec 2, 2025). 675B total / 41B active sparse MoE; Apache 2.0. $0.50/M input, $1.50/M output."
+    },
+    {
+      "match": "pixtral",
+      "vendor": "Mistral AI",
+      "release_date": "2024-11",
+      "tags": [
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Pixtral Large released November 18, 2024 (pixtral-large-2411); 124B multimodal model. Pixtral Large 25.02 updated Feb 2025."
+    },
+    {
+      "match": "mistral-small",
+      "vendor": "Mistral AI",
+      "release_date": "2025-09",
+      "tags": [
+        "cheap-bulk",
+        "tool-calling"
+      ],
+      "notes": "Mistral Small updated 2025; very cost-efficient small model for bulk tasks. Serves as Mistral's cheap-bulk API option."
+    },
+    {
+      "match": "claude-opus-4-6",
+      "vendor": "Anthropic",
+      "release_date": "2026-02",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released February 2026. Opus 4.6 bridged Opus 4.5 and 4.8; heavy reasoning tasks. Replaced by Opus 4.8 (May 2026)."
+    },
+    {
+      "match": "gpt-4.1-mini",
+      "vendor": "OpenAI",
+      "release_date": "2025-04",
+      "tags": [
+        "coding-capable",
+        "tool-calling",
+        "cheap-bulk"
+      ],
+      "notes": "Released April 14, 2025 alongside GPT-4.1. Mid-tier model; 1M context, lower cost than GPT-4.1 flagship."
+    },
+    {
+      "match": "gpt-4.1-nano",
+      "vendor": "OpenAI",
+      "release_date": "2025-04",
+      "tags": [
+        "cheap-bulk",
+        "tool-calling"
+      ],
+      "notes": "Released April 14, 2025. Lightest GPT-4.1 variant; very low cost for bulk inference; 1M context."
+    },
+    {
+      "match": "o3-pro",
+      "vendor": "OpenAI",
+      "release_date": "2025-06",
+      "tags": [
+        "reasoning",
+        "tool-calling"
+      ],
+      "notes": "Released June 10, 2025 to Pro users. Highest-quality o3 reasoning variant; compute-heavy, premium pricing."
+    },
+    {
+      "match": "gemini-3.1-pro",
+      "vendor": "Google",
+      "release_date": "2026-06",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "reasoning",
+        "vision",
+        "tool-calling"
+      ],
+      "notes": "Released June 2026. Improved reasoning over Gemini 3.0; rolling out via AI Studio, Vertex AI, and Gemini app for Pro/Ultra users."
+    }
+  ]
+}

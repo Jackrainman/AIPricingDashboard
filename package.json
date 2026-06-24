@@ -1,0 +1,16 @@
+{
+  "name": "ai-pricing-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "个人 AI 工具定价看板 — 个人仪表盘 / 对比表 / 计算器 + 性价比之选",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.mjs",
+    "dev": "node --watch server/index.mjs",
+    "sync": "node scripts/sync-official-api.mjs",
+    "check-relays": "node scripts/check-relays.mjs"
+  }
+}
