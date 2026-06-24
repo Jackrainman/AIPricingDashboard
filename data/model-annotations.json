@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T13:30:04.701163Z",
+  "generated_at": "2026-06-24",
   "annotations": [
     {
       "match": "claude-fable-5",
@@ -12,7 +12,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released June 9, 2026. Mythos-class model made available publicly. Frontier performance on software engineering, science, vision. 1M context, 128K output. $10/M input, $50/M output."
+      "notes": "Released June 9, 2026. Mythos-class model made available publicly. Frontier performance on software engineering, science, vision. 1M context, 128K output. $10/M input, $50/M output.",
+      "family": "claude-fable"
     },
     {
       "match": "claude-opus-4-8",
@@ -25,7 +26,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released May 28, 2026. Top-tier Opus; current Anthropic general flagship before Fable 5. 1M context. $5/M input, $25/M output."
+      "notes": "Released May 28, 2026. Top-tier Opus; current Anthropic general flagship before Fable 5. 1M context. $5/M input, $25/M output.",
+      "family": "claude-opus"
     },
     {
       "match": "claude-sonnet-4-6",
@@ -36,7 +38,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released February 17, 2026. Balanced workhorse; developer default. Strong coding and long-context. Mid-range pricing."
+      "notes": "Released February 17, 2026. Balanced workhorse; developer default. Strong coding and long-context. Mid-range pricing.",
+      "family": "claude-sonnet"
     },
     {
       "match": "claude-haiku-4-5",
@@ -60,7 +63,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released November 2025. Predecessor to Opus 4.8; heavy reasoning and agentic work."
+      "notes": "Released November 2025. Predecessor to Opus 4.8; heavy reasoning and agentic work.",
+      "family": "claude-opus"
     },
     {
       "match": "claude-sonnet-4-5",
@@ -71,7 +75,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released September 29, 2025. Introduced context-aware improvements; balanced performance."
+      "notes": "Released September 29, 2025. Introduced context-aware improvements; balanced performance.",
+      "family": "claude-sonnet"
     },
     {
       "match": "claude-opus-4-1",
@@ -84,7 +89,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released August 2025. First Opus 4.x point release after initial Opus 4 launch."
+      "notes": "Released August 2025. First Opus 4.x point release after initial Opus 4 launch.",
+      "family": "claude-opus"
     },
     {
       "match": "gpt-5",
@@ -97,7 +103,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released August 7, 2025. OpenAI's frontier general model; available via ChatGPT and API. Succeeded GPT-4.x family."
+      "notes": "Released August 7, 2025. OpenAI's frontier general model; available via ChatGPT and API. Succeeded GPT-4.x family.",
+      "family": "gpt-5"
     },
     {
       "match": "gpt-5-codex",
@@ -120,7 +127,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released April 23, 2026. Latest GPT-5 series flagship; 1M context, $5/M input, $30/M output. Powers Codex in production."
+      "notes": "Released April 23, 2026. Latest GPT-5 series flagship; 1M context, $5/M input, $30/M output. Powers Codex in production.",
+      "family": "gpt-5"
     },
     {
       "match": "gpt-4.1",
@@ -178,7 +186,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Previewed May 2025 (Google I/O); GA in Vertex AI, Gemini API, AI Studio. Long-context, thinking model; top enterprise AI."
+      "notes": "Previewed May 2025 (Google I/O); GA in Vertex AI, Gemini API, AI Studio. Long-context, thinking model; top enterprise AI.",
+      "family": "gemini-pro"
     },
     {
       "match": "gemini-2.5-flash",
@@ -191,7 +200,8 @@
         "tool-calling",
         "cheap-bulk"
       ],
-      "notes": "GA June 2025; stable version February 19, 2026. Cost-efficient thinking model; excellent throughput and vision."
+      "notes": "GA June 2025; stable version February 19, 2026. Cost-efficient thinking model; excellent throughput and vision.",
+      "family": "gemini-flash"
     },
     {
       "match": "gemini-2.5-flash-lite",
@@ -215,7 +225,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released January 2026. Improved reasoning and multimodal; positioned as Google's premier agentic/coding model."
+      "notes": "Released January 2026. Improved reasoning and multimodal; positioned as Google's premier agentic/coding model.",
+      "family": "gemini-pro"
     },
     {
       "match": "gemini-3.5-flash",
@@ -228,7 +239,8 @@
         "tool-calling",
         "cheap-bulk"
       ],
-      "notes": "Introduced at Google I/O 2026 (May 2026); shipped as default for Google AI Mode. Fast and cost-efficient next-gen flash."
+      "notes": "Introduced at Google I/O 2026 (May 2026); shipped as default for Google AI Mode. Fast and cost-efficient next-gen flash.",
+      "family": "gemini-flash"
     },
     {
       "match": "deepseek-chat",
@@ -240,7 +252,8 @@
         "tool-calling",
         "cheap-bulk"
       ],
-      "notes": "deepseek-chat = DeepSeek-V3 (Dec 27, 2024); updated through V3.2. Non-thinking mode; extremely cheap, GPT-5-class on many tasks."
+      "notes": "deepseek-chat = DeepSeek-V3 (Dec 27, 2024); updated through V3.2. Non-thinking mode; extremely cheap, GPT-5-class on many tasks.",
+      "family": "deepseek-standard"
     },
     {
       "match": "deepseek-reasoner",
@@ -264,7 +277,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released July 9, 2025. xAI's flagship trained on 200K-GPU Colossus; strong on reasoning and real-time knowledge."
+      "notes": "Released July 9, 2025. xAI's flagship trained on 200K-GPU Colossus; strong on reasoning and real-time knowledge.",
+      "family": "grok"
     },
     {
       "match": "grok-3",
@@ -277,7 +291,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released February 17, 2025. First xAI dedicated reasoning model; 10x compute of Grok-2. Predecessor to Grok-4."
+      "notes": "Released February 17, 2025. First xAI dedicated reasoning model; 10x compute of Grok-2. Predecessor to Grok-4.",
+      "family": "grok"
     },
     {
       "match": "kimi-k2",
@@ -288,7 +303,8 @@
         "tool-calling",
         "cheap-bulk"
       ],
-      "notes": "Released July 2025. 1T-parameter MoE open-source agentic model; top open-source arena rank. Evolved into K2.5/K2.6/K2.7 series."
+      "notes": "Released July 2025. 1T-parameter MoE open-source agentic model; top open-source arena rank. Evolved into K2.5/K2.6/K2.7 series.",
+      "family": "kimi"
     },
     {
       "match": "kimi-k2.6",
@@ -298,7 +314,8 @@
         "coding-capable",
         "tool-calling"
       ],
-      "notes": "Released April 20, 2026. GA production release; multi-agent coding focus. Modified MIT license. Ties GPT-5.5 on coding benchmarks."
+      "notes": "Released April 20, 2026. GA production release; multi-agent coding focus. Modified MIT license. Ties GPT-5.5 on coding benchmarks.",
+      "family": "kimi"
     },
     {
       "match": "kimi-k2.7-code",
@@ -308,7 +325,8 @@
         "coding-optimized",
         "tool-calling"
       ],
-      "notes": "Released June 12, 2026. Vendor-marketed as coding-first open-source model; weights on Hugging Face. Reduces reasoning tokens ~30%."
+      "notes": "Released June 12, 2026. Vendor-marketed as coding-first open-source model; weights on Hugging Face. Reduces reasoning tokens ~30%.",
+      "family": "kimi"
     },
     {
       "match": "glm-4.6",
@@ -341,7 +359,8 @@
         "reasoning",
         "tool-calling"
       ],
-      "notes": "Released April 28, 2025. Original Qwen3 MoE flagship; 235B total / 22B active. Hybrid thinking/non-thinking modes. Apache 2.0."
+      "notes": "Released April 28, 2025. Original Qwen3 MoE flagship; 235B total / 22B active. Hybrid thinking/non-thinking modes. Apache 2.0.",
+      "family": "qwen-flagship"
     },
     {
       "match": "qwen3-32b",
@@ -374,7 +393,8 @@
         "reasoning",
         "tool-calling"
       ],
-      "notes": "Released February 2026. 397B total / 17B active MoE; 262K native context. Next-gen Qwen3 with 256 experts."
+      "notes": "Released February 2026. 397B total / 17B active MoE; 262K native context. Next-gen Qwen3 with 256 experts.",
+      "family": "qwen-flagship"
     },
     {
       "match": "mistral-large",
@@ -417,7 +437,8 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released February 2026. Opus 4.6 bridged Opus 4.5 and 4.8; heavy reasoning tasks. Replaced by Opus 4.8 (May 2026)."
+      "notes": "Released February 2026. Opus 4.6 bridged Opus 4.5 and 4.8; heavy reasoning tasks. Replaced by Opus 4.8 (May 2026).",
+      "family": "claude-opus"
     },
     {
       "match": "gpt-4.1-mini",
@@ -461,7 +482,32 @@
         "vision",
         "tool-calling"
       ],
-      "notes": "Released June 2026. Improved reasoning over Gemini 3.0; rolling out via AI Studio, Vertex AI, and Gemini app for Pro/Ultra users."
+      "notes": "Released June 2026. Improved reasoning over Gemini 3.0; rolling out via AI Studio, Vertex AI, and Gemini app for Pro/Ultra users.",
+      "family": "gemini-pro"
+    },
+    {
+      "match": "deepseek-v4-pro",
+      "vendor": "DeepSeek",
+      "family": "deepseek-standard",
+      "release_date": "2026-06",
+      "tags": [
+        "flagship",
+        "coding-capable",
+        "tool-calling"
+      ],
+      "notes": "DeepSeek V4 Pro — appeared in upstream pricing ~2026-06. Standard flagship line, successor to deepseek-chat (V3). Tier inferred from naming/pricing; verify specifics."
+    },
+    {
+      "match": "deepseek-v4-flash",
+      "vendor": "DeepSeek",
+      "family": "deepseek-flash",
+      "release_date": "2026-06",
+      "tags": [
+        "coding-capable",
+        "tool-calling",
+        "cheap-bulk"
+      ],
+      "notes": "DeepSeek V4 Flash — lightweight/cheap variant; appeared ~2026-06. Coding-capable, not flagship-tier. Verify specifics."
     }
   ]
 }

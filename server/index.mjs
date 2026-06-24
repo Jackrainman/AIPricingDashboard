@@ -192,10 +192,11 @@ const server = http.createServer(async (req, res) => {
       // coding tools with rule status + my_status
       const codingTools = (plans.tools || []).map((t) => ({ ...t, rule: evalCodingTool(t, rules) }))
       const myTools = codingTools.filter((t) => t.rule.status === 'green' || t.my_status?.current_plan)
-      // models flagged always_show / watched
+      // models flagged always_show / watched. First-party canonical only (skip cloud/aggregator
+      // rebrands of the same model), and hide superseded line members — show the current version.
       const watchedModels = (api.models || [])
         .map((m) => ({ m, r: evalModel(m, rules) }))
-        .filter((x) => x.r.status === 'green' || x.r.status === 'red')
+        .filter((x) => (x.r.status === 'green' || x.r.status === 'red') && !x.m.superseded && x.m.provider_type === 'first_party')
         .slice(0, 30)
         .map((x) => ({ model_id: x.m.model_id, name: x.m.name, vendor: x.m.vendor, input_per_m: x.m.input_per_m, output_per_m: x.m.output_per_m, tags: x.m.tags, rule: x.r }))
       const rec = recommendations(api, plans)

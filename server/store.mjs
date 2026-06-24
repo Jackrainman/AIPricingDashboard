@@ -16,7 +16,7 @@ const DEFAULTS = {
   'subscriptions.json': { subscriptions: [], total_monthly_usd: 0, alerts: [] },
   'rules.json': {
     models: {}, coding_tools: {}, relays: {},
-    calculator: { reference_model_id: 'claude-sonnet-4-5', session_input_tokens: 10000, session_output_tokens: 3000 },
+    calculator: { reference_model_id: 'claude-sonnet-4-6', session_input_tokens: 10000, session_output_tokens: 3000 },
     defaults: { new_model_action: 'show_gray', new_tool_action: 'show_gray' },
   },
 }

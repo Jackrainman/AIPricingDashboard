@@ -45,8 +45,8 @@ function lite(m) {
 
 // officialApi = {models}, codingPlans = {tools}
 export function recommendations(officialApi, codingPlans) {
-  // chat-only, active; embeddings/rerank excluded from value ranking
-  const all = (officialApi?.models || []).filter((m) => m.status === 'active' && (m.kind ?? 'chat') === 'chat')
+  // chat-only, active, non-superseded; embeddings/rerank + retired line members excluded from value ranking
+  const all = (officialApi?.models || []).filter((m) => m.status === 'active' && (m.kind ?? 'chat') === 'chat' && !m.superseded)
   const fp = all.filter((m) => m.provider_type === 'first_party')
   const pool = fp.length ? fp : all
 

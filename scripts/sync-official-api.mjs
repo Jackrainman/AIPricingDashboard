@@ -131,19 +131,23 @@ const SIZE_WORD = /(nano|mini|lite|flash|small|tiny|micro|haiku|air|edge)/
 // named variants that are NOT a clean version bump -> treat as downgrade (drop flagship/reasoning).
 // NOTE: 'thinking' is intentionally NOT here — a thinking variant IS a reasoning model and should keep the parent tier.
 const VARIANT_WORD = /(fast|non[-_]?reasoning|distill|instruct|chat|turbo|preview-tts|tts|audio|image|search)/
+// upgrade variants (top-tier SKUs): keep the parent flagship/reasoning tier rather than downgrading.
+const UPGRADE_WORD = /(pro|max|ultra|plus|heavy|advanced)/
 // Classify how annotation key `k` matches model id `idl`: 'exact' | 'version' | 'downgrade' | null
 function classifyAnn(idl, k) {
   if (idl === k) return 'exact'
   if (idl.startsWith(k)) {
     const suf = idl.slice(k.length)
     if (SIZE_WORD.test(suf) || VARIANT_WORD.test(suf)) return 'downgrade'
+    // pro/max/ultra/plus are UPGRADED SKUs of the same line -> inherit flagship/reasoning
+    if (UPGRADE_WORD.test(suf)) return 'version'
     // a pure date/version tail OR a 'thinking' variant inherits the parent tier (flagship/reasoning)
     if (/^[-._]?(\d|20\d\d|v\d|latest|preview|exp|thinking)/.test(suf) || /thinking/.test(suf)) return 'version'
     return 'downgrade'
   }
   return null
 }
-// pick the most specific (longest key) annotation; returns {ann, downgrade}
+// pick the most specific (longest key) annotation; returns {ann, downgrade, family}
 function pickAnnotation(idl, naml, annotList) {
   let best = null, bestLen = -1, downgrade = false
   for (const a of annotList) {
@@ -153,7 +157,7 @@ function pickAnnotation(idl, naml, annotList) {
     if (!cls && naml && naml === k) cls = 'exact'
     if (cls && k.length > bestLen) { best = a; bestLen = k.length; downgrade = cls === 'downgrade' }
   }
-  return { ann: best, downgrade }
+  return { ann: best, downgrade, family: best?.family ?? null }
 }
 
 function detectKind(vendorId, name, id, mode) {
@@ -210,7 +214,7 @@ async function main() {
       // annotation overlay: most-specific (longest-key) match; size-downgrade siblings drop flagship/reasoning
       const idl = (m.id || '').toLowerCase()
       const naml = (m.name || '').toLowerCase()
-      const { ann, downgrade } = pickAnnotation(idl, naml, annotList)
+      const { ann, downgrade, family } = pickAnnotation(idl, naml, annotList)
       const kind = detectKind(vendorId, m.name || '', m.id || '', ll?.mode)
 
       // tags
@@ -246,12 +250,35 @@ async function main() {
         tags: uniq(finalTags),
         status: m.deprecated ? 'deprecated' : 'active',
         deprecated: !!m.deprecated,
+        superseded: false, // set by family-supersession pass below
         release_date: ann?.release_date ?? null,
         price_note: price_note,
         annotation_note: ann?.notes ?? null,
+        __family: family, // internal; stripped before write
       })
     }
   }
+
+  // --- family supersession: within a curated `family`, only the newest (by release_date)
+  // keeps the flagship crown; older line members are marked superseded + lose flagship.
+  // Keyed on human-curated release_date (reliable), not fragile id/version parsing.
+  const fams = {}
+  for (const m of models) {
+    if (!m.__family) continue
+    ;(fams[m.__family] ||= []).push(m)
+  }
+  let supersededCount = 0
+  for (const list of Object.values(fams)) {
+    const top = list.reduce((a, b) => ((b.release_date || '') > (a.release_date || '') ? b : a)).release_date || ''
+    for (const m of list) {
+      if ((m.release_date || '') < top) {
+        m.superseded = true
+        m.tags = (m.tags || []).filter((t) => t !== 'flagship')
+        supersededCount++
+      }
+    }
+  }
+  for (const m of models) delete m.__family
 
   // sort: first-party first, then vendor, then input price asc (nulls last)
   const typeRank = { first_party: 0, cloud: 1, aggregator: 2, host: 3 }
@@ -271,7 +298,10 @@ async function main() {
     models,
   }
   await writeFile(path.join(DATA, 'official-api.json'), JSON.stringify(out, null, 2))
-  console.error(`[done] wrote ${models.length} models -> data/official-api.json (annotations applied: ${out.annotations_applied})`)
+  console.error(`[done] wrote ${models.length} models -> data/official-api.json (annotations applied: ${out.annotations_applied}, superseded: ${supersededCount})`)
+  // gap heads-up: first-party active chat models the annotation layer never touched (run `npm run check-annotations` for the list)
+  const gaps = models.filter((m) => m.provider_type === 'first_party' && m.status === 'active' && (m.kind ?? 'chat') === 'chat' && !m.release_date && !m.annotation_note)
+  if (gaps.length) console.error(`[gap] ${gaps.length} first-party models未被标注命中 → npm run check-annotations 查看清单`)
   // tiny sanity summary
   const byVendor = {}
   for (const m of models) byVendor[m.vendor] = (byVendor[m.vendor] || 0) + 1
