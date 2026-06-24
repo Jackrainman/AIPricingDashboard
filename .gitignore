@@ -26,5 +26,12 @@ aipd.local.log
 # Local sync caches (re-fetched from upstream)
 data/.cache/
 
+# Fetched / derived artifacts — regenerated on each machine, not versioned.
+#   official-api.json  ← `npm run sync`        (genai-prices + litellm + annotations)
+#   anyrouter-status.json ← `npm run check-relays`
+# Run `npm run sync` after cloning/pulling to populate model data (server falls back to empty until then).
+data/official-api.json
+data/anyrouter-status.json
+
 # PRIVACY: personal billing data stays local (feasibility §2.3 risk #2)
 data/subscriptions.json
