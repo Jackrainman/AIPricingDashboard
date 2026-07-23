@@ -2,6 +2,7 @@
 import { api } from './api.js'
 import { esc, usd, tagChips, money } from './util.js'
 
+// sin/sout 默认每会话 token：与 server/calculator.mjs 的 session_*_tokens 默认值是两处拷贝，改动需同步
 let calcState = { mode: 'tokens', input_mtok: 10, output_mtok: 2, cache_read_mtok: 0, cache_write_mtok: 0,
   sessions: 300, sin: 10000, sout: 3000, provider_type: 'first_party', result: null }
 
@@ -51,7 +52,7 @@ function drawFields(host) {
       ${numField('sessions', '会话数 / 月')}
       ${numField('sin', '每会话输入 token')}
       ${numField('sout', '每会话输出 token')}
-      <div class="muted small">等效 = 会话数 × 每会话 token ÷ 1,000,000 百万 token</div>`
+      <div class="muted small">等效 = 会话数 × 每会话 token ÷ 1,000,000（换算成百万 token）</div>`
   }
   host.querySelectorAll('input[data-k]').forEach((i) => i.addEventListener('input', (e) => {
     calcState[e.target.dataset.k] = e.target.value === '' ? 0 : Number(e.target.value)

@@ -11,7 +11,7 @@
     "start": "node server/index.mjs",
     "dev": "node --watch server/index.mjs",
     "sync": "node scripts/sync-official-api.mjs",
-    "sync:bench": "node scripts/sync-benchmarks.mjs",
+    "sync:bench": "node lab/sync-benchmarks.mjs",
     "check-relays": "node scripts/check-relays.mjs",
     "check-annotations": "node scripts/check-annotations.mjs"
   }
