@@ -9,28 +9,28 @@ async function j(url, opts) {
   return res.json()
 }
 
+// POST helper: no body → bare POST; with body → JSON-encode it
+const post = (url, body) =>
+  j(url, body === undefined
+    ? { method: 'POST' }
+    : { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })
+
 export const api = {
-  officialApi: () => j('/api/official-api'),
   compare: () => j('/api/compare'),
   codingPlans: () => j('/api/coding-plans'),
   relays: () => j('/api/relays'),
   subscriptions: () => j('/api/subscriptions'),
   saveSubscriptions: (subscriptions) =>
     j('/api/subscriptions', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ subscriptions }) }),
-  rules: () => j('/api/rules'),
-  saveRules: (rules) =>
-    j('/api/rules', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(rules) }),
   recommendations: () => j('/api/recommendations'),
   dashboard: () => j('/api/dashboard'),
-  calculate: (body) =>
-    j('/api/calculate', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }),
-  sync: () => j('/api/sync', { method: 'POST' }),
-  checkRelays: () => j('/api/check-relays', { method: 'POST' }),
+  calculate: (body) => post('/api/calculate', body),
+  sync: () => post('/api/sync'),
+  checkRelays: () => post('/api/check-relays'),
   usage: () => j('/api/usage'),
-  refreshUsage: () => j('/api/usage/refresh', { method: 'POST' }),
+  refreshUsage: () => post('/api/usage/refresh'),
   usagePlatforms: () => j('/api/usage/platforms'),
-  enableUsagePlatform: (id, config) =>
-    j(`/api/usage/platforms/${encodeURIComponent(id)}/enable`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(config) }),
+  enableUsagePlatform: (id, config) => post(`/api/usage/platforms/${encodeURIComponent(id)}/enable`, config),
   disableUsagePlatform: (id) =>
     j(`/api/usage/platforms/${encodeURIComponent(id)}`, { method: 'DELETE' }),
 }

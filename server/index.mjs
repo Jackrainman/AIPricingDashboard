@@ -81,20 +81,38 @@ function withRelayStatus(relaysDoc) {
       stale = true
     }
     const merged = { ...r, stale }
-    merged.rule = evalRelay(merged, null)
+    merged.rule = evalRelay(merged)
     return merged
   })
   return { ...relaysDoc, relays }
 }
 
+const SCRIPT_TIMEOUT_MS = 120000
+const scriptRunning = new Set() // in-flight guard: duplicate triggers get 409 instead of a second process
+
+// returns null when the script is already running (caller maps to 409)
 function runScript(file) {
+  if (scriptRunning.has(file)) return Promise.resolve(null)
+  scriptRunning.add(file)
   return new Promise((resolve) => {
     const ps = spawn(process.execPath, [path.join(ROOT, 'scripts', file)], { cwd: ROOT })
-    let out = '', err = ''
+    let out = '', err = '', timedOut = false, settled = false
+    const killTimer = setTimeout(() => { timedOut = true; ps.kill('SIGTERM') }, SCRIPT_TIMEOUT_MS)
+    const done = (r) => {
+      if (settled) return
+      settled = true
+      clearTimeout(killTimer)
+      scriptRunning.delete(file)
+      resolve(r)
+    }
     ps.stdout.on('data', (d) => (out += d))
     ps.stderr.on('data', (d) => (err += d))
-    ps.on('close', (code) => resolve({ code, out: out.slice(-2000), err: err.slice(-2000) }))
-    ps.on('error', (e) => resolve({ code: -1, out: '', err: String(e) }))
+    ps.on('close', (code) => done({
+      code: timedOut ? -2 : code,
+      out: out.slice(-2000),
+      err: (timedOut ? `timeout ${SCRIPT_TIMEOUT_MS / 1000}s\n` : '') + err.slice(-2000),
+    }))
+    ps.on('error', (e) => done({ code: -1, out: '', err: String(e) }))
   })
 }
 
@@ -111,14 +129,7 @@ async function serveStatic(req, res, urlPath) {
     res.writeHead(200, { 'Content-Type': MIME[path.extname(full)] || 'application/octet-stream' })
     res.end(buf)
   } catch {
-    // SPA fallback
-    if (!rel.startsWith('/api')) {
-      try {
-        const buf = await readFile(path.join(PUBLIC, 'index.html'))
-        res.writeHead(200, { 'Content-Type': MIME['.html'] })
-        return res.end(buf)
-      } catch {}
-    }
+    // 无 SPA fallback：前端是 hash 路由；缺失资源必须 404，而不是 200+HTML（难以排查）
     send(res, 404, { error: 'not found' })
   }
 }
@@ -179,6 +190,7 @@ const server = http.createServer(async (req, res) => {
 
     if (urlPath === '/api/calculate' && method === 'POST') {
       const body = await readBody(req)
+      if (body === null) return send(res, 400, { error: 'invalid JSON' }) // 与 /api/rules、/api/subscriptions 一致
       const [api, plans, rules] = await Promise.all([read('official-api.json'), read('coding-plans.json'), read('rules.json')])
       return sendJson(res, calculate(api, plans, rules, body))
     }
@@ -219,8 +231,14 @@ const server = http.createServer(async (req, res) => {
       })
     }
 
-    if (urlPath === '/api/sync' && method === 'POST') return sendJson(res, await runScript('sync-official-api.mjs'))
-    if (urlPath === '/api/check-relays' && method === 'POST') return sendJson(res, await runScript('check-relays.mjs'))
+    if (urlPath === '/api/sync' && method === 'POST') {
+      const r = await runScript('sync-official-api.mjs')
+      return r ? sendJson(res, r) : send(res, 409, { error: 'already running' })
+    }
+    if (urlPath === '/api/check-relays' && method === 'POST') {
+      const r = await runScript('check-relays.mjs')
+      return r ? sendJson(res, r) : send(res, 409, { error: 'already running' })
+    }
 
     // ---------- usage tracking (pluggable platforms, see scripts/usage/README.md) ----------
     if (urlPath === '/api/usage' && method === 'GET') return sendJson(res, getUsage())
