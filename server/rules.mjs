@@ -3,16 +3,20 @@
 
 function lc(s) { return (s || '').toLowerCase() }
 
-// find the rule whose key is a substring of, or equals, the id/name
+// find the rule whose key equals or is a substring of the id/name.
+// Substring matches go longest-key-first, so a specific key (gpt-5-pro) beats a
+// shorter one (gpt-5) that would also match.
 function matchRule(table, ...keys) {
   if (!table || typeof table !== 'object') return null
   const targets = keys.map(lc).filter(Boolean)
+  const entries = Object.entries(table)
   // exact first
-  for (const [k, v] of Object.entries(table)) {
+  for (const [k, v] of entries) {
     if (targets.includes(lc(k))) return { key: k, rule: v }
   }
-  // substring either direction
-  for (const [k, v] of Object.entries(table)) {
+  // substring either direction, most specific (longest) key first
+  const byLenDesc = entries.slice().sort((a, b) => b[0].length - a[0].length)
+  for (const [k, v] of byLenDesc) {
     const kk = lc(k)
     if (targets.some((t) => t.includes(kk) || kk.includes(t))) return { key: k, rule: v }
   }
@@ -42,9 +46,8 @@ export function evalModel(model, rules) {
         }
         return { status: 'hidden', reason: '已忽略', rule_key: m.key }
       }
-      case 'show_if_below':
-      case 'price_threshold': {
-        const thr = r.input_price_per_m_below ?? r.max_input_per_m ?? r.threshold
+      case 'show_if_below': {
+        const thr = r.input_price_per_m_below
         if (thr != null && price != null) {
           return price <= thr
             ? { status: 'green', reason: `≤ $${thr}/M`, rule_key: m.key }
@@ -52,8 +55,6 @@ export function evalModel(model, rules) {
         }
         return { status: 'gray', reason: '阈值缺失', rule_key: m.key }
       }
-      case 'conditional_show':
-        return { status: 'green', reason: '条件关注', rule_key: m.key }
       default:
         return { status: 'gray', reason: `未知规则(${action ?? '空'})`, rule_key: m.key }
     }
@@ -94,9 +95,8 @@ export function evalCodingTool(tool, rules) {
   }
 }
 
-// relay -> status from live health + optional rule
-export function evalRelay(relay, rules) {
-  // health drives the light; rule can only annotate
+// relay -> status from live health only (stale / online / offline)
+export function evalRelay(relay) {
   const alive = relay.status === 'online'
   const stale = relay.stale === true
   if (stale) return { status: 'gray', reason: 'STALE（数据过期）', rule_key: null }

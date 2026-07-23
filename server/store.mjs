@@ -16,20 +16,9 @@ const DEFAULTS = {
   'subscriptions.json': { subscriptions: [], total_monthly_usd: 0, alerts: [] },
   'rules.json': {
     models: {}, coding_tools: {}, relays: {},
-    calculator: { reference_model_id: 'claude-sonnet-4-6', session_input_tokens: 10000, session_output_tokens: 3000 },
-    defaults: { new_model_action: 'show_gray', new_tool_action: 'show_gray' },
+    calculator: { reference_model_id: 'claude-sonnet-4-6' },
+    defaults: { new_model_action: 'show_gray' },
   },
-}
-
-// official-api.json historically may be a bare array (older schema); normalize to wrapper.
-function coerce(name, json) {
-  if (name === 'official-api.json' && Array.isArray(json)) {
-    return { generated_at: null, sources: [], count: json.length, annotations_applied: 0, models: json }
-  }
-  if (name === 'coding-plans.json' && Array.isArray(json)) {
-    return { generated_at: null, tools: json }
-  }
-  return json
 }
 
 export async function read(name) {
@@ -43,8 +32,7 @@ export async function read(name) {
     return structuredClone(DEFAULTS[name] ?? {})
   }
   try {
-    const json = JSON.parse(await readFile(f, 'utf8'))
-    return coerce(name, json)
+    return JSON.parse(await readFile(f, 'utf8'))
   } catch (e) {
     console.error(`[store] failed to parse ${name}: ${e.message}; returning default`)
     return structuredClone(DEFAULTS[name] ?? {})

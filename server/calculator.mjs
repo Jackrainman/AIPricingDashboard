@@ -10,6 +10,7 @@ export function calculate(officialApi, codingPlans, rules, body = {}) {
   let input_mtok, output_mtok
   if (body.sessions != null) {
     const s = num(body.sessions)
+    // 默认每会话 10000/3000 token：与 public/js/calculator.js 的 calcState.sin/sout 是两处拷贝，改动需同步
     input_mtok = (s * num(body.session_input_tokens, 10000)) / 1e6
     output_mtok = (s * num(body.session_output_tokens, 3000)) / 1e6
   } else {
@@ -57,7 +58,8 @@ export function calculate(officialApi, codingPlans, rules, body = {}) {
   }
 
   // coding-plan equivalence (ESTIMATE): how many input-Mtok of the reference model the plan's $ buys
-  const refId = rules?.calculator?.reference_model_id || 'claude-sonnet-4-5'
+  // fallback 字面值与 store.mjs DEFAULTS rules.calculator.reference_model_id 保持一致（本模块不 import store，需手动同步）
+  const refId = rules?.calculator?.reference_model_id || 'claude-sonnet-4-6'
   const ref = (officialApi?.models || []).find((m) => (m.model_id || '').includes(refId)) ||
               (officialApi?.models || []).find((m) => (m.model_id || '').includes('sonnet'))
   const refInput = ref?.input_per_m || 3

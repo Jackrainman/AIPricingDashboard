@@ -44,12 +44,9 @@
   },
   "relays": {},
   "calculator": {
-    "reference_model_id": "claude-sonnet-4-6",
-    "session_input_tokens": 10000,
-    "session_output_tokens": 3000
+    "reference_model_id": "claude-sonnet-4-6"
   },
   "defaults": {
-    "new_model_action": "show_gray",
-    "new_tool_action": "show_gray"
+    "new_model_action": "show_gray"
   }
 }
