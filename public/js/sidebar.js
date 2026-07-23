@@ -2,7 +2,7 @@
 import { api } from './api.js'
 import { esc, money, tagChips } from './util.js'
 
-const CARD_ICON = { overall: '👑', coding: '💻', bulk: '📦', reasoning: '🧠', frontier: '🚀', plan: '🎫' }
+const CARD_ICON = { overall: '👑', coding: '💻', bulk: '📦', reasoning: '🧠', plan: '🎫' }
 
 export async function renderSidebar(root) {
   root.innerHTML = `<div class="side-head">性价比之选</div><div class="muted small loading">计算中…</div>`

@@ -134,7 +134,7 @@ function drawApiTable(body) {
   table.querySelectorAll('th.sortable').forEach((th) => th.addEventListener('click', () => {
     const key = th.dataset.key
     if (state.sortKey === key) state.sortDir *= -1
-    else { state.sortKey = key; state.sortDir = key === 'name' ? 1 : 1 }
+    else { state.sortKey = key; state.sortDir = 1 }
     drawApiTable(body)
   }))
 }

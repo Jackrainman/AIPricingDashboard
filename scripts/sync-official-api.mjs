@@ -27,35 +27,37 @@ const CACHE = {
   litellm: process.env.LITELLM_CACHE || path.join(DATA, '.cache', 'litellm.json'),
 }
 
-// vendor (genai provider id) -> preferred litellm_provider names, for capability join
-const VENDOR_LITELLM = {
-  anthropic: ['anthropic', 'bedrock', 'bedrock_converse', 'vertex_ai-anthropic_models'],
-  openai: ['openai', 'azure', 'azure_ai'],
-  google: ['gemini', 'vertex_ai-language-models', 'vertex_ai'],
-  deepseek: ['deepseek'],
-  mistral: ['mistral'],
-  'x-ai': ['xai'],
-  cohere: ['cohere', 'cohere_chat'],
-  perplexity: ['perplexity'],
-  moonshotai: ['moonshot', 'moonshotai'],
-  zhipuai: ['zhipuai'],
-  minimax: ['minimax'],
-}
-
-// provider_type lets the UI default to first-party vendors and fold the rest away
-const PROVIDER_TYPE = {
-  anthropic: 'first_party', openai: 'first_party', google: 'first_party', deepseek: 'first_party',
-  mistral: 'first_party', 'x-ai': 'first_party', cohere: 'first_party', perplexity: 'first_party',
-  moonshotai: 'first_party', zhipuai: 'first_party', minimax: 'first_party', voyageai: 'first_party',
-  aws: 'cloud', azure: 'cloud', ovhcloud: 'cloud',
-  openrouter: 'aggregator',
-  together: 'host', fireworks: 'host', groq: 'host', cerebras: 'host', novita: 'host',
-  avian: 'host', doubleword: 'host',
+// 单张 vendor 表（两张平行表合并而来，消除漂移——voyageai 曾只在其中一张）：
+//   litellm: 能力数据 join 时优先的 litellm_provider 名（可省略）
+//   type:    provider_type —— UI 默认展示一方厂商，折叠其余
+const VENDORS = {
+  anthropic:  { litellm: ['anthropic', 'bedrock', 'bedrock_converse', 'vertex_ai-anthropic_models'], type: 'first_party' },
+  openai:     { litellm: ['openai', 'azure', 'azure_ai'], type: 'first_party' },
+  google:     { litellm: ['gemini', 'vertex_ai-language-models', 'vertex_ai'], type: 'first_party' },
+  deepseek:   { litellm: ['deepseek'], type: 'first_party' },
+  mistral:    { litellm: ['mistral'], type: 'first_party' },
+  'x-ai':     { litellm: ['xai'], type: 'first_party' },
+  cohere:     { litellm: ['cohere', 'cohere_chat'], type: 'first_party' },
+  perplexity: { litellm: ['perplexity'], type: 'first_party' },
+  moonshotai: { litellm: ['moonshot', 'moonshotai'], type: 'first_party' },
+  zhipuai:    { litellm: ['zhipuai'], type: 'first_party' },
+  minimax:    { litellm: ['minimax'], type: 'first_party' },
+  voyageai:   { type: 'first_party' },
+  aws:        { type: 'cloud' },
+  azure:      { type: 'cloud' },
+  ovhcloud:   { type: 'cloud' },
+  openrouter: { type: 'aggregator' },
+  together:   { type: 'host' },
+  fireworks:  { type: 'host' },
+  groq:       { type: 'host' },
+  cerebras:   { type: 'host' },
+  novita:     { type: 'host' },
+  avian:      { type: 'host' },
+  doubleword: { type: 'host' },
 }
 function providerType(id) {
-  if (PROVIDER_TYPE[id]) return PROVIDER_TYPE[id]
-  if (id.startsWith('huggingface_')) return 'host'
-  return 'host'
+  // 未列入表中的一律视为托管 host（含 huggingface_* 系列，原死分支与默认返回值相同）
+  return VENDORS[id]?.type || 'host'
 }
 
 async function loadJson(url, cachePath, label) {
@@ -142,7 +144,7 @@ function classifyAnn(idl, k) {
     // pro/max/ultra/plus are UPGRADED SKUs of the same line -> inherit flagship/reasoning
     if (UPGRADE_WORD.test(suf)) return 'version'
     // a pure date/version tail OR a 'thinking' variant inherits the parent tier (flagship/reasoning)
-    if (/^[-._]?(\d|20\d\d|v\d|latest|preview|exp|thinking)/.test(suf) || /thinking/.test(suf)) return 'version'
+    if (/^[-._]?(\d|20\d\d|v\d|latest|preview|exp|thinking)/.test(suf)) return 'version'
     return 'downgrade'
   }
   return null
@@ -183,7 +185,7 @@ async function main() {
   // index litellm by provider for vendor-preferred capability join
   const llEntries = Object.entries(litellm).filter(([k]) => k !== 'sample_spec')
   function findLitellm(matchFn, vendor) {
-    const prefer = VENDOR_LITELLM[vendor] || []
+    const prefer = VENDORS[vendor]?.litellm || []
     let fallback = null
     for (const [name, spec] of llEntries) {
       if (typeof spec !== 'object' || !spec) continue
@@ -247,7 +249,7 @@ async function main() {
         cache_write_per_m,
         context_window: context_window,
         max_output: max_output,
-        tags: uniq(finalTags),
+        tags: finalTags,
         status: m.deprecated ? 'deprecated' : 'active',
         deprecated: !!m.deprecated,
         superseded: false, // set by family-supersession pass below

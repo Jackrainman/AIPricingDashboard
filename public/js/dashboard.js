@@ -1,6 +1,6 @@
 // dashboard.js — 个人仪表盘 (default tab)
 import { api } from './api.js'
-import { esc, money, usd, dot, tagChips, daysBadge, ago, sparkline, $$ } from './util.js'
+import { esc, money, usd, dot, tagChips, daysBadge, ago, sparkline } from './util.js'
 
 export async function renderDashboard(root) {
   const gen = root.dataset.gen // set by app.switchTab; if it changes, a newer tab render superseded us
@@ -49,11 +49,12 @@ export async function renderDashboard(root) {
     <div class="updated muted small">API 数据同步于 ${esc(ago(d.api_generated_at))} · 仪表盘 ${esc(ago(d.generated_at))}</div>
   `
 
-  $$('#recheck').forEach((b) => b.addEventListener('click', async () => {
-    b.disabled = true; b.textContent = '探测中…'
+  const recheckBtn = root.querySelector('#recheck')
+  if (recheckBtn) recheckBtn.addEventListener('click', async () => {
+    recheckBtn.disabled = true; recheckBtn.textContent = '探测中…'
     try { await api.checkRelays() } catch {}
     renderDashboard(root)
-  }))
+  })
   const editBtn = root.querySelector('#edit-subs')
   if (editBtn) editBtn.addEventListener('click', () => openSubsEditor(d.subscriptions?.subscriptions || [], () => renderDashboard(root)))
 }
@@ -82,7 +83,7 @@ function relayList(relays) {
 }
 
 function myTools(tools) {
-  if (!tools?.length) return `<div class="muted small">数据同步后显示（在 设置/规则 中标记 always_show）。</div>`
+  if (!tools?.length) return `<div class="muted small">数据同步后显示（在 data/rules.json 中为工具标记 always_show）。</div>`
   return `<div class="tool-chips">` + tools.map((t) =>
     `<div class="tool-chip">${dot(t.rule?.status)} <b>${esc(t.tool)}</b> <span class="muted small">${esc(t.rule?.reason || '')}</span></div>`).join('') + `</div>`
 }

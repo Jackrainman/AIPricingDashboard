@@ -53,15 +53,6 @@ export function daysBadge(days) {
   return `<span class="badge">${days}天</span>`
 }
 
-export function fmtDateTime(iso) {
-  if (!iso) return '从未'
-  try {
-    const d = new Date(iso)
-    const pad = (x) => String(x).padStart(2, '0')
-    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
-  } catch { return iso }
-}
-
 export function ago(iso) {
   if (!iso) return '从未'
   const ms = Date.now() - new Date(iso).getTime()
@@ -84,21 +75,4 @@ export function sparkline(history) {
   return `<span class="sparkline">${bars}</span>`
 }
 
-// minimal element factory
-export function el(tag, attrs = {}, ...children) {
-  const e = document.createElement(tag)
-  for (const [k, v] of Object.entries(attrs)) {
-    if (k === 'class') e.className = v
-    else if (k === 'html') e.innerHTML = v
-    else if (k.startsWith('on') && typeof v === 'function') e.addEventListener(k.slice(2).toLowerCase(), v)
-    else if (v != null) e.setAttribute(k, v)
-  }
-  for (const c of children.flat()) {
-    if (c == null) continue
-    e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c)
-  }
-  return e
-}
-
-export const $ = (sel, root = document) => root.querySelector(sel)
 export const $$ = (sel, root = document) => [...root.querySelectorAll(sel)]
