@@ -1,19 +1,11 @@
 #!/usr/bin/env bash
-# start.sh — (re)start the dashboard server in a detached tmux session (fallback: setsid nohup).
-# Survives SSH disconnect. Usage: PORT=4178 HOST=0.0.0.0 bash scripts/start.sh
-set -e
-PORT="${PORT:-4178}"
-HOST="${HOST:-127.0.0.1}"
-HERE="$(cd "$(dirname "$0")/.." && pwd)"
-
+# start.sh — MOVED: 启动脚本已三合一为仓库根目录 start.sh（前台 / -d 后台 / --tmux）。
+# 本 shim 仅为兼容旧调用路径保留（shell 可用后可 git rm 删除）。
+# 原语义 = 断连存活启动：有 tmux 走 --tmux，否则走 -d（setsid+nohup）。
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 if command -v tmux >/dev/null 2>&1; then
-  tmux kill-session -t aipd 2>/dev/null || true
-  tmux new-session -d -s aipd "cd '$HERE' && PORT=$PORT HOST=$HOST node server/index.mjs > ~/aipd.log 2>&1"
+  exec "$ROOT/start.sh" --tmux
 else
-  pkill -f 'server/index.mjs' 2>/dev/null || true
-  setsid bash -c "cd '$HERE' && PORT=$PORT HOST=$HOST node server/index.mjs > ~/aipd.log 2>&1" </dev/null &
+  exec "$ROOT/start.sh" -d
 fi
-
-sleep 1.8
-node -e "fetch('http://localhost:$PORT/api/health').then(r=>r.text()).then(t=>console.log('[start] health:',t)).catch(e=>console.log('[start] health ERR',e.message))"
-echo "[start] AI Pricing Dashboard on :$PORT (HOST=$HOST)"

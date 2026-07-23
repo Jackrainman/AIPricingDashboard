@@ -42,3 +42,6 @@ data/subscriptions.json
 # (ignore the dir's *contents*, not the dir itself, so the .example exception below works)
 data/credentials/*
 !data/credentials/config.json.example
+
+# Experimental / lab — not ready for production
+lab/
