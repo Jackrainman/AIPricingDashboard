@@ -2,6 +2,7 @@
 import { renderDashboard } from './dashboard.js'
 import { renderCompare, resetCompareCache } from './compare.js'
 import { renderCalculator } from './calculator.js'
+import { renderUsage } from './usage.js'
 import { renderSidebar } from './sidebar.js'
 import { api } from './api.js'
 
@@ -9,6 +10,7 @@ const TABS = [
   { id: 'dashboard', label: '个人仪表盘', render: renderDashboard },
   { id: 'compare', label: '对比表', render: renderCompare },
   { id: 'calculator', label: '计算器', render: renderCalculator },
+  { id: 'usage', label: '用量', render: renderUsage },
 ]
 
 let current = 'dashboard'

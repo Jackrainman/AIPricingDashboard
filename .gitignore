@@ -37,3 +37,8 @@ data/benchmarks.json
 
 # PRIVACY: personal billing data stays local (feasibility §2.3 risk #2)
 data/subscriptions.json
+
+# PRIVACY: usage-tracking credentials (api keys / cookies) — never commit
+# (ignore the dir's *contents*, not the dir itself, so the .example exception below works)
+data/credentials/*
+!data/credentials/config.json.example

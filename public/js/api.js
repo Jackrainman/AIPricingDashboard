@@ -26,4 +26,11 @@ export const api = {
     j('/api/calculate', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }),
   sync: () => j('/api/sync', { method: 'POST' }),
   checkRelays: () => j('/api/check-relays', { method: 'POST' }),
+  usage: () => j('/api/usage'),
+  refreshUsage: () => j('/api/usage/refresh', { method: 'POST' }),
+  usagePlatforms: () => j('/api/usage/platforms'),
+  enableUsagePlatform: (id, config) =>
+    j(`/api/usage/platforms/${encodeURIComponent(id)}/enable`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(config) }),
+  disableUsagePlatform: (id) =>
+    j(`/api/usage/platforms/${encodeURIComponent(id)}`, { method: 'DELETE' }),
 }

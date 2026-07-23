@@ -247,6 +247,29 @@ tr.discontinued td { opacity: .6; }
 .in-auto { display: inline-flex; gap: 4px; align-items: center; font-size: 12px; color: var(--text-2); white-space: nowrap; }
 .del { padding: 4px 8px; }
 
+/* ---------- usage tracking ---------- */
+.usage-topbar { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.usage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+.usage-grid .panel { margin-bottom: 0; }
+.usage-metric { padding: 8px 0; border-bottom: 1px solid var(--border-soft); }
+.usage-metric:last-of-type { border-bottom: none; }
+.um-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 5px; font-size: 13px; }
+.ubar { height: 6px; background: var(--bg-elev); border-radius: 999px; overflow: hidden; }
+.ubar i { display: block; height: 100%; border-radius: 999px; transition: width .3s; }
+.ubar-ok { background: var(--green); }
+.ubar-warn { background: var(--amber); }
+.ubar-danger { background: var(--red); }
+.um-sub { margin-top: 4px; }
+.usage-meta { margin-top: 10px; }
+.usage-err { color: var(--red); margin-top: 6px; word-break: break-all; }
+.auth-note { background: rgba(255,92,108,.1); border: 1px solid rgba(255,92,108,.3); color: #ff8a96; border-radius: var(--radius-sm); padding: 8px 10px; font-size: 12.5px; margin-bottom: 10px; }
+.usage-actions { display: flex; gap: 8px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+.cred-box { flex: 1 1 100%; }
+.cred-box summary { list-style: none; display: inline-block; cursor: pointer; }
+.cred-box summary::-webkit-details-marker { display: none; }
+.cred-form { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-soft); }
+.cred-form .field { margin-bottom: 0; }
+
 /* ---------- toast ---------- */
 .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--panel-2); border: 1px solid var(--border); color: var(--text); padding: 10px 18px; border-radius: 999px; opacity: 0; pointer-events: none; transition: all .25s; z-index: 200; box-shadow: var(--shadow); }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }

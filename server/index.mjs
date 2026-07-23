@@ -8,6 +8,7 @@ import { read, write, PUBLIC, ROOT } from './store.mjs'
 import { evalModel, evalCodingTool, evalRelay } from './rules.mjs'
 import { recommendations } from './recommend.mjs'
 import { calculate } from './calculator.mjs'
+import { initUsage, getUsage, refreshUsage, getPlatforms, enablePlatform, disablePlatform } from './usage.mjs'
 
 const PORT = Number(process.env.PORT) || 4178
 // local-only by default; opt into LAN/Tailscale exposure explicitly with HOST=0.0.0.0
@@ -221,12 +222,33 @@ const server = http.createServer(async (req, res) => {
     if (urlPath === '/api/sync' && method === 'POST') return sendJson(res, await runScript('sync-official-api.mjs'))
     if (urlPath === '/api/check-relays' && method === 'POST') return sendJson(res, await runScript('check-relays.mjs'))
 
+    // ---------- usage tracking (pluggable platforms, see scripts/usage/README.md) ----------
+    if (urlPath === '/api/usage' && method === 'GET') return sendJson(res, getUsage())
+    if (urlPath === '/api/usage/refresh' && method === 'POST') return sendJson(res, await refreshUsage())
+    if (urlPath === '/api/usage/platforms' && method === 'GET') return sendJson(res, { platforms: getPlatforms() })
+    const usageEnable = urlPath.match(/^\/api\/usage\/platforms\/([\w-]+)\/enable$/)
+    if (usageEnable && method === 'POST') {
+      const body = await readBody(req)
+      if (!body || typeof body !== 'object') return send(res, 400, { error: 'invalid JSON body' })
+      try {
+        return sendJson(res, await enablePlatform(usageEnable[1], body)) // 幂等覆盖 = 更新凭据入口
+      } catch (e) {
+        if (e.code === 'UNKNOWN_PLATFORM') return send(res, 404, { error: e.message })
+        if (e.code === 'BAD_CONFIG') return send(res, 400, { error: e.message })
+        throw e
+      }
+    }
+    const usageDelete = urlPath.match(/^\/api\/usage\/platforms\/([\w-]+)$/)
+    if (usageDelete && method === 'DELETE') return sendJson(res, await disablePlatform(usageDelete[1]))
+
     return send(res, 404, { error: 'unknown endpoint', path: urlPath })
   } catch (e) {
     console.error('[server] error', e)
     return send(res, 500, { error: String(e?.message || e) })
   }
 })
+
+initUsage().catch((e) => console.error('[usage] init failed', e)) // 后台调度；失败不阻塞服务启动
 
 server.listen(PORT, HOST, () => {
   console.log(`AI Pricing Dashboard → http://${HOST === '0.0.0.0' ? 'localhost' : HOST}:${PORT}`)
